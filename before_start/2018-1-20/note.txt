@@ -1,0 +1,43 @@
+ajax
+application/x-www-form-urlencoded
+----------
+jsonp
+WebSocket
+
+----------
+restful api  is just habit style 
+
+----------- 
+method  url                 idea
+get       /user             login
+post      /user             register
+delete    /user             cancell
+
+------------------
+content-type 
+
+text/plain  
+application/x-www-form-urlencoded    &&&& style    simple data
+multipart/form-data     定界符分割各个数据（文件上传）   
+urlencoded : name=value&name=value&name=value
+---------------
+jsonp:
+cross domain
+
+sequrity :  too open
+
+cors
+WebSocket
+formData
+
+----
+encodeURIComponent('中文')
+"%E4%B8%AD%E6%96%87"
+----
+Backend - node.js:
+1: native
+2: framework, lib
+
+
+
+ 

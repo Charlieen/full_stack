@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/ajax.js"></script>
+
+    <script>
+        window.onload = function() {
+            let oBtn = document.getElementById('btn1');
+            oBtn.onclick= function(){
+
+                // ajax('1.php','get',{a:10,b:30}, message => {
+                //     alert(message);
+                //     console.log(message);
+                // },
+                // err =>{
+                //     if (err == 404)
+                //     alert('request resource can not be found!');
+                // }
+                // );
+
+               ajax({
+                   url:'1.php',
+                   data:{a:10,b:40},
+                   dataType:'json',
+                   success(str){
+                       alert(str),
+                       console.log(str)
+                   },
+                   error(err){
+                       alert('wrong')
+                   }
+               }) 
+            }
+
+          
+       
+        }
+       
+       
+    </script>
+</head>
+ 
+<body>
+    <input type="button" value="button1" id="btn1">
+</body>
+</html>

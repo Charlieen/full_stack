@@ -1,0 +1,81 @@
+NodeJS
+
+5：多进程
+Child processes
+Cluster
+Process
+6：Crypto -- md5 sha  signature 
+7：http
+HTTP 
+8: os
+9：Path
+10:
+11: Query string  url
+12: network
+TCP - net
+UDP  UDP/datagram
+
+13: DNS  Domain 
+14: Stream  continuous data is stream - video stream  net stream  file stream  sound stream
+15. TLS/SSL
+16. ZLIB  compression 
+
+
+
+
+
+
+Assertion testing   
+Async hooks 
+Buffer   
+C++ addons  
+C/C++ addons with N-API
+C++ embedder API
+
+Command line options
+Console
+
+Debugger
+Deprecated APIs
+DNS
+Domain
+ECMAScript modules
+Errors
+Events
+File system
+Globals
+HTTP
+HTTP/2
+HTTPS
+Inspector
+Internationalization
+Modules
+Net
+OS
+Path
+Performance hooks
+Policies
+
+Punycode
+Query strings
+Readline
+REPL
+Report
+Stream
+String decoder
+Timers
+TLS/SSL
+Trace events
+TTY
+UDP/datagram
+URL
+Utilities
+V8
+VM
+WASI
+Worker threads
+Zlib
+
+----------
+asynchonous  99.9 %
+synchonous

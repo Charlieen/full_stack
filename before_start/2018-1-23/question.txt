@@ -1,0 +1,10 @@
+on :
+listen , notice, callback, asynchonous
+
+let a=12
+let b=5
+
+let {c:cc, b} = {c:12,b:90};
+
+alert(cc)
+alert(c) //error

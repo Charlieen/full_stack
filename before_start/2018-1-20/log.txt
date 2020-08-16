@@ -1,0 +1,33 @@
+
+// ajax request headers:
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7
+Connection: keep-alive
+Content-Length: 9
+** Content-Type: text/plain;charset=UTF-8
+Host: localhost
+Origin: http://localhost
+Referer: http://localhost/www/full_stack/before_start/2018-1-20/ajax2.html
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Macintosh; 
+
+/// form  request header:
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7
+Cache-Control: max-age=0
+Connection: keep-alive
+Content-Length: 9
+** Content-Type: application/x-www-form-urlencoded
+cp-extension-installed: Yes
+Host: localhost
+Origin: http://localhost
+Referer: http://localhost/www/full_stack/before_start/2018-1-20/form.html
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: same-origin
+Sec-Fetch-User: ?1
+Upgrade-Insecure-Requests: 1

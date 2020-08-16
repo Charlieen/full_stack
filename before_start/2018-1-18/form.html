@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script>
+        const $1= document.querySelectorAll; // $1 scope is window, so querySelectorAll function  this point window, but querySelectorAll only effect in document
+
+        const $= document.querySelectorAll.bind(document);  // make sure function querySelectorAll this all  point to  document
+
+        const $$ = function(...args){
+            return document.querySelectorAll(...args);
+        }
+
+         window.onload= function(){
+             let oForm = $('#form1')[0];
+             alert(oForm);
+         }
+    </script>
+    <title>Form </title>
+    <form action="http://localhost/a.php" method="GET" id="form1">
+       USerName: <input type="text" name="user"  value=""><br>
+       Password: <input type="password" name="password" value=""><br>
+        <input type="submit" value="submit">
+    </form>
+</head>
+<body>
+    
+</body>
+</html>

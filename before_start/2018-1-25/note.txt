@@ -1,0 +1,107 @@
+native nodejs
+1: server basic structure
+2: response static resource
+-----
+1: file data 
+2: database 
+---
+file upload  use post 
+----
+1: text/plain
+2: application/x-www-form-urlencoded
+3: multipart/form-data 
+
+
+---
+
+------WebKitFormBoundaryS3PIHuUmn7kjT3d0
+Content-Disposition: form-data; name="name"
+
+ee
+------WebKitFormBoundaryS3PIHuUmn7kjT3d0
+Content-Disposition: form-data; name="pass"
+
+
+------WebKitFormBoundaryS3PIHuUmn7kjT3d0
+Content-Disposition: form-data; name="f1"; filename="test.txt"
+Content-Type: text/plain
+
+aaa
+bbb
+ccc
+ddd
+
+------WebKitFormBoundaryS3PIHuUmn7kjT3d0--
+
+--------------------------------------------------------------------------------------------------
+<分隔符>\r\n
+Content-Disposition: form-data; name="name"\r\n
+\r\n
+ee\r\n
+<分隔符>\r\n
+Content-Disposition: form-data; name="pass"\r\n
+\r\n
+<分隔符>\r\n
+Content-Disposition: form-data; name="f1"; filename="test.txt"\r\n
+Content-Type: text/plain\r\n
+\r\n
+aaa
+bbb
+ccc
+ddd
+\r\n
+<分隔符>\r\n
+--------------------------------------------------------------------------------------------------
+<分隔符>\r\n数据描述\r\n\r\n数据值\r\n,
+<分隔符>\r\n数据描述\r\n\r\n数据值\r\n,
+<分隔符>\r\n数据描述1\r\n数据描述2\r\n\r\n<文件内容>\r\n
+<分隔符>-- 
+--------------------------------------------------------------------------------------------------
+Parsing data:
+1: use <分隔符> cut down data
+
+[
+    空，
+    \r\n数据描述\r\n\r\n数据值\r\n,
+    \r\n数据描述\r\n\r\n数据值\r\n,
+    \r\n数据描述1\r\n数据描述2\r\n\r\n<文件内容>\r\n,
+    --
+]
+
+2: discard / throw away head and tail
+
+[  
+    \r\n数据描述\r\n\r\n数据值\r\n,
+    \r\n数据描述\r\n\r\n数据值\r\n,
+    \r\n数据描述1\r\n数据描述2\r\n\r\n<文件内容>\r\n,  
+]
+3: discard  each item  head \r\n  and tail \r\n
+
+[
+    数据描述\r\n\r\n数据值，
+    数据描述\r\n\r\n数据值，
+    数据描述1\r\n数据描述2\r\n\r\n<文件内容>
+
+]
+4：use first appear \r\n\r\n split  avoid in file content include  \r\n\r\n
+
+general data:  [数据描述，数据值]
+
+file data: [数据描述1\r\n数据描述2,<文件内容>]
+
+5: determine  描述里面  有没有 \r\n；
+
+exist : file  data
+no exist : general data
+
+6: 
+
+-----------------------------------------------------------------------------
+
+1： use Buffer data  
+    1.1: search   indexOf()
+    1.2  split    slice(a,b)
+    1.3  substring
+ 
+
+

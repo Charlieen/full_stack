@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.js"></script>
+    <script>
+        $(function(){
+            //reg:
+            $('#btn1').click(()=>{
+                $.ajax({
+                    url:'/reg',
+                    data:{user:$('#user').val(),pass:$('#pass').val()},
+                    dataType:'json',
+                    success:(data)=>{
+                        if(data.err){
+                            alert('wrong!' + data.msg);
+                        }else{
+                            alert('success')
+                        }
+                    },
+                    error:(err)=>{
+                        alert('failure');
+                    }
+
+                })
+            });
+
+            $('#btn2').click(()=>{
+                $.ajax({
+                    url:'/login',
+                    data:{user:$('#user').val(),pass:$('#pass').val()},
+                    dataType:'json',
+                    success:(data)=>{
+                        if(data.err){
+                            alert('wrong!' + data.msg);
+                        }else{
+                            alert('success')
+                        }
+                    },
+                    error:(err)=>{
+                        alert('failure');
+                    }
+
+                })
+            })
+
+        })
+    </script>
+</head>
+<body>
+    <h1>reg and login</h1>
+        Name:  <input name="name" type="text" value="" id="user"><br/>
+        Password:  <input name="pass" type="password" value="" id="pass"<br/>
+        <input type="submit" value="reg" id="btn1">
+        <input type="submit" value="login" id="btn2">
+ 
+</body>
+</html>

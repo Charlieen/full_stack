@@ -1,0 +1,91 @@
+---
+for server, it does not distinct  form ajax or jsonp
+
+---
+form:
+1: attribute
+    1.1 action   server point  resource or local system  process , The Url processes the form submission
+
+    1.2 method : 
+
+    get :   
+       1 data put in url  the capacity is less then 32k  basic 20k  http head = 32k
+       2:  can be see by eye  use form  ; when use ajax , eye can not see.
+       3:  have Cache 
+       4:   easy to / convenient to  share and collect or keep or favorites 
+
+    post:   
+        1: data in http body   capacity is big basic 1G  , but no resume from break point
+        2: can not see
+        3: no Cache
+
+
+    get post  sequrity  same   https  is  real sequrity  
+    can be customize
+
+
+    1.3 name:   must  can be repeat
+    submit
+
+2: the method of data submit
+3: validation
+----
+ajax:
+1: browser
+-------
+ajax  inner how to  implement
+ajax vs form
+
+1:  form  handle by browser
+2:  ajax handle by js 
+3:  ajax not refresh page, 
+
+How to deal with form duplicate submit? 
+   - when begin to submit  -- disable submit
+   - finished( success/ failure) -- enable submit
+-----
+ajax inner how to write:
+asynchronous: parallel 
+synchronous:  Serial 
+//https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/readyState
+onreadystatechange  = on ready state change
+
+
+0 : initialization        unsent
+1 : has connected          opend
+2 : has sent               headers_received 
+3 : has received   header   loading
+4 : has received    body    done 
+
+http state code : 
+https://www.restapitutorial.com/httpstatuscodes.html
+
+ 1xx: message
+ 2xx:  success
+ 3xx: redirection  
+       301 : moved Permanently
+       302: Found ( previously Moved temporarily)
+       304 Not Modified  (Catche local files browser handle)
+ 4xx:  error client
+ 5xx:  error server
+ 6xx:  extended
+ 
+ -------
+ xhr.responseText 
+ xhr.responseXML 
+ --------
+
+ ajax  finished  Encapsulated  Cache  post
+ jsonp
+ ajax cross domain  cors
+ formData Ajax 2.0
+
+ ----
+ WebSocket， Nodejs
+
+ -----
+ redirection:  let browser  request  another address
+ forwarding : 
+
+
+

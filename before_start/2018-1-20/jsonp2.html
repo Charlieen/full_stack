@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ 
+
+    <script>
+        function show(json){
+           // alert(json.s)
+           let oUl= document.getElementById('list');
+            oUl.innerHTML='';
+            json.s.forEach(str => {
+                let li = document.createElement('li');
+                 li.innerHTML=str;
+                oUl.appendChild(li);
+            })
+        }
+
+        window.onload= function(){
+           
+            let oTxt = document.getElementById('txt1');
+
+            oTxt.oninput= function(){
+
+                let oS = document.createElement('script');
+                oS.src=`https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=${encodeURIComponent(oTxt.value)}&cb=show`
+
+                document.head.appendChild(oS);
+            }
+        }
+        
+    </script>
+
+</head>
+<body>
+    <input type="text" name="" id="txt1">
+    <ul id ="list">
+
+    </ul>
+</body>
+</html>

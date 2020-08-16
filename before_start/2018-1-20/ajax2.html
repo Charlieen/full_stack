@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        window.onload = function(){
+
+        let oBtn = document.getElementById('btn1');
+        
+        oBtn.onclick= function(){
+
+           let xhr = new XMLHttpRequest();
+          // alert(xhr.readyState);
+           // Not compatible IE6 
+        //    if(window.XMLHttpRequest){
+        //        var xhr = new XMLHttpRequest();
+        //    }else{
+        //        var xhr = new ActiveXObject('Microsoft.XMLHttp');
+        //    }
+
+            //1  connect   true : asynchronous   false: synchronous 
+           // alert(xhr);
+//  Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience
+             xhr.open('POST','2.php',true);
+           //  alert(xhr.readyState)
+            //2 send
+            xhr.setRequestHeader('content-type','application/x-www-form-urlencoded');
+           // const data = {'a':20,'b':30};
+            xhr.send('a=10&b=20');
+          //  xhr.send(data);
+           // alert(xhr.readyState)
+            
+            //3 receive
+
+            xhr.onreadystatechange = function(){
+                //4 
+                if(xhr.readyState == 4){
+                   // alert('finished')
+
+                    if(xhr.status >= 200 && xhr.status<300 || xhr.status == 304){
+                        alert('Success!!' + xhr.responseText)
+                        //alert(xhr.responseURL)
+                    }else {
+                        alert('Failure')
+                 
+                    }
+                }
+            }
+ 
+        }
+
+        }
+       
+       
+    </script>
+</head>
+ 
+<body>
+    <input type="button" value="button1" id="btn1">
+</body>
+</html>

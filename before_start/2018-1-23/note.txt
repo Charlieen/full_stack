@@ -1,0 +1,135 @@
+post data 
+body
+big 1g
+
+-----
+setHeader()
+writeHeader()
+write()
+------
+one big data should cut into a bunch of  small  packets
+1: convience for all people
+2: strong fault tolerance   each small packet can failure 
+
+// 
+url.parse ()
+querystring.parse()
+
+----
+Get data :
+1: req.url
+ let(pathname,query) =url.parse(req.url,true)
+
+Post data:
+in body   more big
+let str =''
+
+req.on('data', data=>{
+    str += data
+});
+
+req.on('end',()=>{
+    console.log(str)
+})
+
+----------
+interface  add a middle layer between  database and front end
+
+1: interface document 
+2: write it down
+-----
+user register
+
+/reg?user=xxx&pass=xxx
+=>{err:0,msg:'message'}
+
+user login:
+/login?user=xxx&pass=xxx
+=>{err:0,msg:'message'}
+
+----
+sequrity:
+
+1: all data from front-end  are all untrustworthy.
+2:
+-------------------
+database:
+1: file type  sqlite
+2: relation  mysql oracle most   structure  fixed
+3: document  MongoDB  directory save  structure  dont care
+
+big system  main database : relation database.  
+
+Mysql : 
+oracle : Disaster tolerance  very strong;  financial 
+
+NoSQL:
+redis, memcached, hypertable, bigtable
+
+data warehouse
+
+------------------
+About Cache:
+first time:
+get xxx:
+
+cache-control
+expires: 200
+date: 
+
+second time:
+
+browers ,  get xxx date: xxxx  => server  use date xxxx from browers  and then  => 304, or push a new data with latest date;
+
+server : read the file edit date  and then compared with the date from  browser request ;
+
+-----------
+node garbage collection : auto  // java jc javacript jc 
+
+int *arr = (int*)malloc(sizeof(int)*100);
+
+free(arr);  // manual release
+
+reference count
+Person p = new Person();
+Person p2= p;
+
+
+p =Null
+
+...
+
+p2 =Null
+
+...
+
+-------------
+browser : src ->  path - url --> if any things change ,then browers  think(consider) it change, so browers will reload, or send new request and pull new database.
+a.php?user=dzg&pass=1234    ?  follow a data  data need get from server , data can have time attribute ,and use this feature do Cache.
+<script src="a.js?t=2018012322"></script>
+
+-------------
+server Cache pool:
+1: Recently used,most frequently used   put in memory
+
+strategy : come form user use functions.
+
+
+-------
+Next:
+Database,
+database + interface + front end
+ajax
+formData
+WebSocket
+
+--------
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,1 @@
+ const data = {q:"s",p:false,s:["双色球今天开奖结果","scp","上证指数","圣墟","搜狐","双色球","scp基金会","secretlab","三十而已","smart"]};
