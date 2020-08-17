@@ -50,7 +50,7 @@ bbb
 ccc
 ddd
 \r\n
-<分隔符>\r\n
+<分隔符>\r\n 
 --------------------------------------------------------------------------------------------------
 <分隔符>\r\n数据描述\r\n\r\n数据值\r\n,
 <分隔符>\r\n数据描述\r\n\r\n数据值\r\n,
@@ -103,5 +103,58 @@ no exist : general data
     1.2  split    slice(a,b)
     1.3  substring
  
+--------------------------------------------------------------
+uuid,
+
+--------------------------------------------------------------
+瑕疵：
+1： 错误，  等到所有数据都到达了才开始处理。
+    正确：  收到一部分就开始解析一部分， 极大节约内存，  采用一个 缓冲队列。
+2： readFile writeFile  问题
+
+http.createServer((req,res)=>{
+    fs.readFile(`www.${req.url}`,(err,data)=>{
+        res.write(data)
+    })
+})
+
+readFile  first real all data into memory ,then callback:
+1: extremely memory intensive
+2: Extremely inadequate use of resources 
+
+--------------------------------------------------------------
+stream:
+read some-part send some-part
+1: read stream      read file or net data   fs.createReadStream req
+2: write stream     fs.creatWriteStream  res
+3: read/ write stream   compress  encryption
+
+--------------------------------------------------------------
+
+1:Post  file data
+
+2: stream  gz
+--------------------------------------------------------------
+
+3: database
+4: Cache
+5: Multiprocess
+
+6: api , do project
+
+--------------------------------------------------------------
+stream  underlying principle :
+
+product and custom pattern
+
+--------------------------------------------------------------
+
+面向字节的设备： 键盘   
+面向流的设备：   网卡   块。
+
+
+
+
+
 
 

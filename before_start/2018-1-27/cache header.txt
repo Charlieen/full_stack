@@ -1,0 +1,42 @@
+first one :
+Request Headers:
+
+Response Headers:
+
+Accept-Ranges: bytes
+Connection: Keep-Alive
+Content-Length: 148
+Content-Type: text/plain
+Date: Sun, 16 Aug 2020 17:14:30 GMT
+ETag: "94-5ad01c9193c00"
+Keep-Alive: timeout=5, max=100
+
+Last-Modified: Sun, 16 Aug 2020 17:14:24 GMT
+
+------------
+second time:
+
+request header:
+
+
+Cache-Control: max-age=0
+If-Modified-Since: Sun, 16 Aug 2020 17:14:24 GMT
+If-None-Match: "94-5ad01c9193c00"
+
+
+
+Response header:
+
+Request URL: http://localhost/www/full_stack/before_start/b.txt
+Request Method: GET
+Status Code: 304 Not Modified
+Remote Address: [::1]:80
+Referrer Policy: no-referrer-when-downgrad
+
+
+Accept-Ranges: bytes
+Content-Length: 148
+Content-Type: text/plain
+Date: Sun, 16 Aug 2020 17:16:07 GMT
+ETag: "94-5ad01c9193c00"
+Last-Modified: Sun, 16 Aug 2020 17:14:24 GMT

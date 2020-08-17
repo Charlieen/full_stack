@@ -1,4 +1,4 @@
-{ 
+{
   "name": "2018-1-25",
   "version": "0.0.1",
   "description": "the first time use npm service,just a test",
@@ -9,6 +9,7 @@
   "author": "zgding",
   "license": "ISC",
   "dependencies": {
-    "uuid": "^8.3.0"
+    "uuid": "^3.2.1"
   }
 }
+ 

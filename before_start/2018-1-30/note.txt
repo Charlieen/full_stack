@@ -1,0 +1,32 @@
+1: Nodejs - database
+2: ajax- cross domain
+3: Websocket
+-----------------------------------------------------------------------------
+1: build connect
+2: do query
+db.query('do what?',(err,data)=>{
+
+});
+
+-----------------------------------------------------------------------------
+SQL :
+let db= mysql.createConnection({});
+let db2 = mysql.createPool({});
+-----------------------------------------------------------------------------
+user register, login
+1: database structure ( data dict);
+2: interface (interface documnet)
+
+1: RESTful
+reg:
+
+/reg?username=xxx&pass=xxxx
+=>{err:0,msg:'msg'}
+
+login:
+
+/login?username=xxx&pass=xxx
+=>{err:0,msg:'msg'}
+
+
+

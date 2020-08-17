@@ -1,0 +1,66 @@
+----------------------------------------------------------------------
+
+1 important Chache strategy   cache-control  expires
+2 important: Cache: implement process
+
+1: fist S->C: If-Modified: Sun, 16 Aug 2020 17:14:24 GMT
+2：second C->S: IF-Modified-Since: Sun, 16 Aug 2020 17:14:24 GMT
+3: second S->C: 200||304
+
+
+----------------------------------------------------------------------
+multiProcess and multiThread  programming model， paradigm
+
+node.js default  :  single  process   single thread
+
+----------------------------------------------------------------------
+
+主进程： 派生 子进程，  主进程 不干活，负责 派生 子进程，
+
+web application  不是cpu 密集的 程序 ，关键点 在 IO
+多进程 带来的好处是 安全性增加 -- 一个进程 挂了，还有其他的进程。
+
+web app  not cpu intensive app , is IO intensive app
+but multiprocess lead to improve sequrity, for example ,when one process dead then  other process can back up ...
+
+----------------------------------------------------------------------
+
+cluster, process
+----------------------------------------------------------------------
+process - strange:
+1: normal process can not  create process, only  system process can create process ,只有主进程能分裂。
+2: 进程是分裂出来，
+3：分裂出来的两个进程执行的是同一套代码
+* 4：父子进程之间 可以共享 “句柄”  父子进程 可以共享一个 端口。
+----------------------------------------------------------------------
+子进程 = 守护进程
+子进程 = 工作进程。
+
+----------------------------------------------------------------------
+进程调度 -- 开销，  较好的策略是   当前进程 （已获得 资源） 满了，才启用第二个，-》前两个全满了 -> 才启用第三个 ...
+----------------------------------------------------------------------
+database:
+1:server 
+2:client : notejs, java, php, navicat for mysql
+
+------
+1: warehouse - folder
+2:table  
+
+----
+float  8   eight decimal place
+double: 10^308
+
+varchar  255 
+text:  1G 
+
+main key   index  unique  auto increment
+
+
+
+
+
+
+
+
+

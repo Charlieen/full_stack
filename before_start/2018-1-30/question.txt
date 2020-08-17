@@ -1,0 +1,5 @@
+Cache setting:
+
+1: url change
+2: stander, every time need to request server
+3:
