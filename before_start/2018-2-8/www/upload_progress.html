@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style media="screen">
+      .box {
+        width: 400px;
+        height: 150px;
+        border: 1px solid black;
+        background: #ccc;
+        position: absolute;
+        margin-left: -200px;
+        margin-top: -75px;
+        left: 50%;
+        top: 50%;
+        text-align: center;
+        line-height: 150px;
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        let oBox = document.querySelector(".box");
+
+        oBox.ondragenter = function () {
+          oBox.innerHTML = "hi,welcome, release hand and begin upload...";
+        };
+        oBox.ondragleave = function () {
+          oBox.innerHTML = "please drag here";
+        };
+        oBox.ondragover = function () {
+          // if mouse was hold  do not leave, then keep occur
+
+          // console.log("aaa");
+
+          //ondragover  Do not block default events,then ondrop won't trigger  --- 不阻止默认事件，ondrop 不会触发
+          return false;
+        };
+        oBox.ondrop = function (ev) {
+          let data = new FormData();
+
+          Array.from(ev.dataTransfer.files).forEach((file) => {
+            data.append("f1", file);
+          });
+
+          let oAjax = new XMLHttpRequest();
+
+     
+
+          oAjax.open("POST", `http://localhost:8080/api`, true);
+
+          // browser send OPTION  request 
+          oAjax.upload.onprogress= function(ev){
+           // alert('progress');
+           let oM= document.getElementById('m1');
+           oM.value =  100 * ev.loaded/ev.total;
+            // console.log(ev.loaded/ev.total);
+          }
+
+          // browser send POST request 
+          oAjax.send(data);
+
+          // console.log(oAjax);
+
+          // oAjax.upload.onprogress=function(ev){
+          //     console.log(ev);
+          // }
+
+           
+
+
+          oAjax.onreadystatechange = function () {
+            if (oAjax.readyState == 4) {
+              if (
+                (oAjax.status >= 200 && oAjax.status < 300) ||
+                oAjax.status == 304
+              ) {
+                alert("upload Success");
+              } else {
+                alert("upload failure");
+              }
+            }
+          };
+     
+          // oAjax.upload.onprogress= function(ev){
+          //   alert(' 2 upload progress!!!')
+          //   console.log(ev);
+          // }
+
+          // oAjax.upload.addEventListener('progress',function(ev){
+          //     console.log(ev);
+          //   },false);
+
+
+          return false;
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <meter value= "" min="0" max="100" style="width:500px;" id="m1"></meter>
+    <div class="box">
+      please drag here
+    </div>
+  </body>
+</html>

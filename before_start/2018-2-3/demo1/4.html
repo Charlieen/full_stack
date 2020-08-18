@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Room Client 4</title>
+    <script src="http://localhost:8080/socket.io/socket.io.js" charset="utf-8"></script>
+    <script src="jquery.js"></script>
+    <script>
+        let sock = io.connect('ws://localhost:8080/');
+        $(function(){
+            $('#send').click(function(){
+
+                const msg = $('#msg').val();
+                //alert(msg);
+                sock.emit('msg',`c4:${msg}`);
+             });
+        
+          
+            });
+
+            sock.on('new_msg', function(data){
+               
+                document.getElementById('chatroom').innerHTML = data;
+             })
+
+        
+    </script>
+</head>
+<body>
+    <h1>Client 4 Joint Chat Room</h1>
+
+    <div id="chat">
+        <input type="text" id="msg"><br/>
+        <div  id="chatroom" ></div>
+        <input type="button" value="Submit" id= "send">
+    </div>
+</body>
+</html>

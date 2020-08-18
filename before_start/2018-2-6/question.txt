@@ -1,0 +1,4 @@
+how to debugger：
+
+1: debugger;
+2: alert, console.log()

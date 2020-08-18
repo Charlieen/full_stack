@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload= function(){
+            let oUser = document.getElementById('user');
+            let oPass = document.getElementById('pass');
+            let oBtn = document.getElementById('btn1');
+
+            oBtn.onclick= function(){
+                let data = new FormData();
+                data.set('user',oUser.value);
+                data.set('pass',oPass.value);
+
+                //
+                let oAjax = new XMLHttpRequest();
+
+                //GET
+               /* let arr=[];
+                data.forEach((value,key)=>{
+                    arr.push(`${encodeURIComponent(key)}= ${encodeURIComponent(value)}`);
+                });
+
+
+                oAjax.open('GET',`http://localhost:8080/api?${arr.join('&')}`,true);
+                oAjax.send();
+            */
+            //POST
+
+            oAjax.open('POST',`http://localhost:8080/api`,true);
+            // ajax 1.0 no  origin  we can customize a request header named 'x-my-origin-charlie' 
+          //   oAjax.setRequestHeader('x-my-origin-charlie',window.location.hostname);
+            // oAjax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');  not recognize  'application/x-www-form-urlencoded';
+
+            oAjax.send(data);
+
+                oAjax.onreadystatechange= function(){
+                    if(oAjax.readyState ==4){
+                       
+                        if(oAjax.status >=200 && oAjax.status<300 || oAjax.status == 304){
+                            alert('Success'); 
+                        }else{
+                            alert('failure');
+                        }
+                    }
+                }
+
+            }   
+        }
+    </script>
+</head>
+<body>
+    username: <input type="text" id="user"><br/>
+    password:<input type="password" id= "pass"><br/>
+    <input type="button" value="Submit" id ="btn1">
+</body>
+</html>

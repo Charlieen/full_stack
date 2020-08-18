@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style media="screen">
+      .box {
+        width: 400px;
+        height: 200px;
+        background: #ccc;
+        border: 1px solid black;
+        line-height: 200px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-top: -100px;
+        text-align: center;
+        display: none;
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        let oBox = document.querySelector(".box");
+        let timer;
+        document.addEventListener(
+          "dragover",
+          (ev) => {
+            clearTimeout(timer);
+
+            oBox.style.display = "block";
+
+            timer = setTimeout(() => {
+              oBox.style.display = "none";
+            }, 300);
+            ev.preventDefault();
+          },
+          false
+        );
+
+        oBox.addEventListener(
+          "dragenter",
+          () => {
+            oBox.innerHTML = "Please release hand";
+          },
+          false
+        );
+
+        oBox.addEventListener(
+          "dragleave",
+          (ev) => {
+            oBox.innerHTML = "Please drag files to here";
+           
+          },
+          false
+        );
+
+        oBox.addEventListener(
+          "drop",
+          (ev) => {
+            let data = new FormData();
+
+            Array.from(ev.dataTransfer.files).forEach((file) => {
+              data.append("f1", file);
+            });
+            let oAjax = new XMLHttpRequest();
+            
+            oAjax.open("POST", `http://localhost:8080/api`, true);
+
+            oAjax.upload.addEventListener('progress',(ev)=>{
+                let oM= document.getElementById('m1');
+                oM.value = (ev.loaded/ev.total) *100;
+            },false);
+
+            oAjax.send(data);
+            oAjax.onreadystatechange = function () {
+              if (oAjax.readyState == 4) {
+                if (
+                  (oAjax.status >= 200 && oAjax.status < 300) ||
+                  oAjax.status == 304
+                ) {
+                  alert("Success");
+                } else {
+                  alert("failure");
+                }
+              }
+            };
+
+            ev.preventDefault();
+          },
+          false
+        );
+      };
+    </script>
+  </head>
+  <body>
+      <meter value="",min=0"", max="100" style="width:500px;"  id="m1" ></meter>
+    <div class="box">Please drag files to here!</div>
+  </body>
+</html>

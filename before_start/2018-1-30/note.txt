@@ -28,5 +28,13 @@ login:
 /login?username=xxx&pass=xxx
 =>{err:0,msg:'msg'}
 
+-----------------------------------------------------------------------------
+WebSocket:
 
+1: two-way communication
+2: auto cross domain
+3: hight perfermance
+
+socket.io
+------------------------------------------------------------------------
 

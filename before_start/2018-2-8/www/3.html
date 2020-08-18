@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload= function(){
+            let oUser = document.getElementById('user');
+            let oPass = document.getElementById('pass');
+            let oF = document.getElementById('f1');
+            let oBtn = document.getElementById('btn1');
+
+            oBtn.onclick= function(){
+                let data = new FormData();
+                data.set('user',oUser.value);
+                data.set('pass',oPass.value);
+
+               Array.from(oF.files).forEach(file=>{
+                   data.append('f1',file);
+               });
+                
+
+                //
+                let oAjax = new XMLHttpRequest();
+
+
+            //POST
+
+            console.log(oAjax);
+
+            oAjax.open('POST',`http://localhost:8080/api`,true);
+            // oAjax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');  not recognize  'application/x-www-form-urlencoded';
+            
+            oAjax.send(data);
+
+                oAjax.onreadystatechange= function(){
+                    if(oAjax.readyState ==4){
+                        if(oAjax.readyState >=200 && oAjax.readyState<300 || oAjax.readyState == 304){
+                            alert('Success'); 
+                        }else{
+                            alert('failure');
+                        }
+                    }
+                }
+
+            }   
+        }
+    </script>
+</head>
+<body>
+    username: <input type="text" id="user"><br/>
+    password:<input type="password" id= "pass"><br/>
+    image:  <input type="file" id="f1" multiple><br/>
+    <input type="button" value="Submit" id ="btn1">
+</body>
+</html>

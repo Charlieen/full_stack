@@ -1,0 +1,14 @@
+断点续传  --  普通 html can not do it 
+content-range
+
+moblie web   no
+moblie app   yes
+
+-----
+ let oAjax = new XMLHttpRequest();
+
+ if(oAjax.upload){
+     alert('2.0')
+ } else{
+     alert('1.0')
+ }

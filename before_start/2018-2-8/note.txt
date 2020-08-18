@@ -1,0 +1,96 @@
+ FormData
+
+oAjax.upload.onprogress= function(ev){
+    ev.loaded
+    ev.total  
+    ev.loaded/ev.total;
+
+}
+
+------------------------------------------------------------
+1:upload must put before send();
+2: as before , when you add upload  =》 --OPTIONS   -POST
+3:  so server side  need to  server.use('/api',(req,res){
+
+})  ;  use can same get post and other type of request.
+------------------------------------------------------------
+1: upload must put send 
+2: server must can deal with OPTIONS
+   general  server
+   nodejs express  use 
+------------------------------------------------------------
+oAjax.onprogress           download progress  means  from client  get data from server via ajax;
+oAjax.upload.onprogress 
+
+------------------------------------------------------------
+DOM level 2  DOM level3
+
+------------------------------------------------------------
+2: drag upload :
+
+ondragenter
+ondragleave
+ondragover  must be prevent else ondrop failure
+ondrop     must be prevent else browser open the file    return false;
+ 
+------------------------------------------------------------
+drag -> upload
+ev.dataTransfer.files -> data
+drag -> read file content;
+
+------------------------------------------------------------ 
+oForm.onsubmit= function(){
+    return false;
+}
+
+oForm.addEventListener('submit',(ev)=>{
+    ...
+    ev.preventDefault();
+},false);
+------------------------------------------------------------ 
+image:
+1:upload
+2: custom select
+3: keep selected -> save to db
+
+method:
+1: first do not upload, all happen at client;     save resource;
+2: first all upload, and then wait user to delete; more  be safe ()
+------------------------------------------------------------ 
+FileReader how to use?
+1: let reader = new FileReader();
+2: reader.onload= function(){
+    reader.result
+}
+3: reader.readAsXXX
+
+readAsText
+readAsDataURL  --- base64  --- image (and other binary data)
+readAsBinaryString  --- Binary data sotred as a string 
+readAsArrayBuffer   ---  save data as binary data array 
+data:text/plain;base64,YWFhCmJiYgpjY2MKZGRkCg==
+
+------------------------------------------------------------ 
+transfer data between browser and server :
+1: binary data
+2: base64  can change binary data into string character
+
+As long as the address (src) can appear, base64 can be used.
+
+base64  little application  ： small icon don't use address, diretally put base64 - Optimize network performance
+
+
+fieldname: 'f1',
+  originalname: 'b copy.png',
+  encoding: '7bit',
+  mimetype: 'image/png',
+  destination: './upload',
+  filename: 'f2b8e4bf1ba35643e558ee6d883dee58',
+  path: 'upload/f2b8e4bf1ba35643e558ee6d883dee58',
+  size: 84381
+
+-------
+1: data communication finished ...
+2: HTML 5
+1. CSS3 animation 
+  advance application video canvas touch layout in mobile  SVG /

@@ -1,0 +1,88 @@
+1.ajax2.0
+  a. formdata:  more easy use program define and control the form , file upload.
+  b. cors cross domain
+
+----------------------------------------------------------------------
+formdata:
+
+set(key,value);
+
+get(key) => value
+delete(key) 
+
+data.set('user','dzg');
+data.set('user','dzg2');  //overwrite 
+append(key,value);
+
+
+<form>
+<input type="text" name="user" value="dzg">
+<input type="text" name="user" value="dzg2">
+</form>
+
+-----
+FormData - file upload.
+1:set get getAll forEach delete
+2: server side same
+----------------------------------------------------------------------
+Node:
+1. native
+2. lib framework
+
+express:
+1:
+2: middleware
+3:
+----------------------------------------------------------------------
+RESTful : not standard, not protocol ,not specification , is one style
+
+request method and 
+request path 
+
+User:
+GET :  /user/:id   ---- get user info
+POST: /user           ---- reg
+POST: /user/login      ---  login
+POST: /user/ch_pass    ---- change password
+
+----------------------------------------------------------------------
+1: cross domain:  browser
+不存在跨域这回事，是浏览器对咱们的限制。
+
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Origin: <origin>
+Access-Control-Allow-Origin: null
+
+S: validate headers['origin'] know or not know
+  know -> setHeader('Access-Control-Allow-Origin','*');
+C: do nothing;
+
+
+These is no such thing as cross-domain, the browser limits us 
+Access to XMLHttpRequest at 'http://localhost:8080/api' from origin 'null'
+ has been blocked by CORS policy:
+ No 'Access-Control-Allow-Origin' header is present on the requested resource.
+
+----
+
+ *
+For requests without credentials, the literal value "*" can be specified, as a wildcard; the value tells browsers to allow requesting code from any origin to access the resource. Attempting to use the wildcard with credentials will result in an error.
+<origin>
+Specifies an origin. Only a single origin can be specified. If the server supports clients from multiple origins, it must return the origin for the specific client making the request.
+null
+Specifies the origin "null".
+ ----------------------------------------------------------------------
+ Grag upload files
+ new events type 
+1: ondrag:
+
+   ondragenter    on drag enter
+   ondragleave    on drag leave
+   ondragover      Hover
+   ondrop        realease hand 
+----------------------------------------------------------------------
+2: upload progress rate 
+Html5
+
+
+

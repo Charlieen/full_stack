@@ -1,0 +1,100 @@
+-----------------------------------------------------------------------
+server:
+sock.on('disconnect')
+sock.on('connection')
+
+---------------------------------------------------------------------
+client:
+
+sock.on('connect');
+sock.on('disconnect');
+
+------------------------------------------------------------------------
+websocket  socket.io
+native websocket
+------------------------------------------------------------------------
+WebSocket is front-end in H5
+
+--------------------------original data ----------------------------------------------
+GET / HTTP/1.1
+Host: localhost:8080
+Connection: Upgrade
+Pragma: no-cache
+Cache-Control: no-cache
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36
+Upgrade: websocket
+Origin: file://
+Sec-WebSocket-Version: 13
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7
+Sec-WebSocket-Key: ZvpF5X8jYPYhnKzrOco7Gw==
+Sec-WebSocket-Extensions: permessage-deflate; client_max_window_bits
+
+----------------------------------------------
+1: delete first line
+2: each line cut with ": ";
+
+------
+数据帧： data Frame
+
+      0                   1                   2                   3
+      0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+     +-+-+-+-+-------+-+-------------+-------------------------------+
+     |F|R|R|R| opcode|M| Payload len |    Extended payload length    |
+     |I|S|S|S|  (4)  |A|     (7)     |             (16/64)           |
+     |N|V|V|V|       |S|             |   (if payload len==126/127)   |
+     | |1|2|3|       |K|             |                               |
+     +-+-+-+-+-------+-+-------------+ - - - - - - - - - - - - - - - +
+     |     Extended payload length continued, if payload len == 127  |
+     + - - - - - - - - - - - - - - - +-------------------------------+
+     |                               |Masking-key, if MASK set to 1  |
+     +-------------------------------+-------------------------------+
+     | Masking-key (continued)       |          Payload Data         |
+     +-------------------------------- - - - - - - - - - - - - - - - +
+     :                     Payload Data continued ...                :
+     + - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
+     |                     Payload Data continued ...                |
+     +---------------------------------------------------------------+
+
+     1位  bit
+     8 bit  -> byte
+
+--------------------------------------------------------------------------------------------
+use WebSocket:
+1: socket.io
+2: native WebSocket
+    2.1: net module
+    2.2: flow 
+        2.2.1: hand shake
+        C: version 13 sec-websocket-key:xxxx  , mask   sha1(key+mask)=>base64
+        S: 101 switching Protocols, sec-websocket-accept: base64
+        C<->S
+
+        Client :  onopen() onmessage() onclose()
+
+        Server: net.createServer(sock=>{})
+        sock.once('data',hand shake);
+        sock.on('data',data request);
+        sock.on('end')
+
+        2.2.2: data frame Parsing
+
+--------------------------------------------------------------------------------------------
+formdata: Simulate a form 
+
+1: form  in html 
+2: formdata  ajax 2.0
+    2.1: simulate form  submit
+    2.2  submit file and monitor the file upload progress rate 
+
+swf assist finish formdata; -- swfuploader
+--------------------------------------------------------------------------------------------
+ajax2.0
+
+1:cors cross domain
+2: formdata submit form
+
+HTML5 
+--------------------------------------------------------------------------------------------
+
+
