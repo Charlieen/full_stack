@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style media="screen">
+        .box {width:200px;height:200px;background:#CCC; transform:translate(0px,0px);}
+    </style>
+    <script>
+        window.onload=function(){
+            let oBox= document.getElementsByClassName('box')[0];
+            let x=0, y=0;
+            // stage 1: make sure direction:
+            let dirX =0,dirY=0;
+            let startX = ev.targetTouches[0].clientX;
+            let startY = ev.targetTouches[0].clientY;
+            let x1=0, y1=0;
+
+
+            oBox.addEventListener('touchstart',function(ev){
+                let disX= ev.targetTouches[0].clientX - x;
+                let disY= ev.targetTouches[0].clientY - y;
+
+
+                function fnMove(ev){
+                    
+                    
+
+                    x1= Math.abs(ev.targetTouches[0].clientX -startX);
+                    y1= Math.abs(ev.targetTouches[0].clientY- startY);
+                    
+                    while(!(dirX || dirY)){
+                        if(x1>=5){
+                            dirX=1;
+                        }else if(y1>=5){
+                            dirY=1;
+                        }
+                    }
+                    if(dirX){
+                        x = ev.targetTouches[0].clientX-disX;
+                        
+                    }else if(dirY){
+                        y = ev.targetTouches[0].clientY-disY;
+                
+                    }
+
+                    oBox.style.transform =`translate(${x}px,${y}px)`;
+
+                
+                
+                }
+
+                function fnEnd(ev){
+                    oBox.removeEventListener('touchmove',fnMove,false); 
+                    oBox.removeEventListener('touchend',fnEnd,false); 
+                }
+
+                oBox.addEventListener('touchmove',fnMove,false);
+                 
+                oBox.addEventListener('touchend', fnEnd ,false);
+            });
+        } 
+        
+    </script>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

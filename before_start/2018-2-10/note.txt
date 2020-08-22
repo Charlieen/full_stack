@@ -1,0 +1,101 @@
+HTML5:
+1. geolocation
+2. video audio
+3. localStorage
+    cookie:  too small: -- 4k, browser and server share  both can read and write
+    localStorage big 5M, browser engross
+4. * WebWorker
+5. WebSQL IndexedDB  -- security risks 
+6. files operation drag
+7. canvas   draw picture
+    SVG/VML
+8.  manifest file      front end controll Cache
+  * local application 
+9.touch
+
+CSS3:
+---------------------------------------------------------------------------------------------
+geolocation : 
+1: principle 
+   PC end:   -> ip address location   very poor accuracy
+   Mobile end:  GPS  <10m ;
+2: PC end: 
+   ip lib 
+   Chrome -> google.com ask data 
+   IE -> micosoft.com
+
+   ----
+   window.geolocation  X
+   navigator.geolocation
+
+   watchPostion  continue  get location
+   getCurrentPosition  get one time
+   clearWatch 
+
+----------------
+accuracy: 2618
+altitude: null
+altitudeAccuracy: null
+heading: null
+latitude: 43.8960128
+longitude: -79.413248
+speed: null
+----------------
+localStorage: 5M/ domain
+1: domain cross domain
+2: extremely convenient
+3: useage:  keep craft;
+------------------------------------------------
+SessionStorage   when browser close  => disappear
+
+------------------------------------------------
+WebWorker -web  no use
+main process -UI process
+sub process - work process
+
+WebWorker:
+1: can not controll UI process , do some data interactive 
+2: sub process can not create sub process
+3: can not cross domain 
+
+multi-process give full play to computer resources (memory X, IO X,net X,CPU yes )
+basic no use  -- usenessful  -- uselessful
+
+
+------------------------------------------------
+canvas: bitmap  amplification distortion   HTML5
+SVG:  Vector Graphics   not HTML5   is a independent  standard   
+VML:  
+------------------------------------------------
+canvas:
+1:path operate just  select area; and need next step operate
+  close need closePath();
+2: side line: stroke()
+3: fill  fill()
+
+attribute:
+lineWidth
+strokeStyle
+fillStyle
+-------------------------------------------------------
+where can use canvas?
+
+1:chart ： echarts js
+2：Game
+3:Filter 
+-------------------------------------------------------
+next step:
+
+1:CSS3   animation, 3d  transfrom
+2: canvas
+3: mobile touch 
+4: moblie lib  iscroll hammer 
+5: canvas advance application
+  ：Game
+  WebGL
+
+
+
+
+
+

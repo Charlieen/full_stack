@@ -1,0 +1,61 @@
+CSS3 
+------------------------------------------------------------------
+*Let the transformed child elements preserve the 3D transformations: *
+
+transform 3D
+1:perspective
+2:XYZ
+
+3d transform  
+1: perspective;   self ,  visual effects
+  * 只给最外层加一次，不能层层加 
+    just add at outermost , can not add easy layer {layer refer: dom structure}
+2: preserve-3d;   child elements  , child element can break away parent element;
+  * each layer need to break away then it need to be put preserve-3D
+------------------------------------------------------------------
+Flip book effect
+WebGL
+------------------------------------------------------------------
+1:mobile - layout adaptation
+2:touch
+3:lib
+4:responsive 
+------------------------------------------------------------------
+mobile adaptation :
+
+1:meta viewport
+
+2:box model:
+normal.width = width + padding + border;
+new box.width =  padding and border  squeeze in when use margin , failure;
+
+
+3:flex:  elastic  box model;
+  i: border-box 
+  ii: border ,padding margin good
+  iii: max-width ,min-width match
+
+4:rem
+  unit: px %  em  rem
+  px: absolute
+  em : relative  font-size 
+  width:12em; font-sie:20px;   => width = 240px;
+  rem : root-em 
+
+  rem  相对于 html 的 font-size 来 确定 大小。 relative to html tag's font-size 
+
+  summary: under different size of screen, just need to adjust  HTML attribute font-size  easy high perfermance
+
+  ------------------------------------- -------------
+  mobile : all size use rem 
+
+  1: do a mobile page
+  2: 响应式
+  3：touch
+  ....
+  
+
+
+
+
+

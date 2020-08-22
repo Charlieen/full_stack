@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- /* transition: 1s all ease; */
+    /* transition:1s width ease, 3s height ease; */ -->
+    <style media="screen">
+        @keyframes aaa {
+            0%{width:200px;height:200px;font-size:14px;background:#CCC}
+            25%{width:400px;height:200px;font-size:14px;background:#CCC}
+            50%{width:400px;height:400px;font-size:14px;background:#CCC}
+            75%{width:400px;height:400px;font-size:30px;background:#CCC}
+            100%{width:400px;height:400px;font-size:30px;background:red;}
+        }
+        .box{ width:200px;height:200px;background:#CCC;margin:100px auto 0;
+            animation-name:aaa;
+            animation-duration:2s;
+            animation-timing-function: ease;
+            animation-fill-mode: forwards;
+            animation-delay: 2s;
+            animation-iteration-count: infinite;
+            animation-direction:alternate;
+            
+        }
+
+        .box:active {
+            animation-play-state: paused;
+        } 
+    </style>
+    <!-- <script>
+     window.onload = function(){
+            let oBox = document.getElementsByClassName('box')[0];
+            oBox.onclick = function(){
+                this.style.width='400px';
+            }
+        }
+    </script> -->
+</head>
+<body>
+    <div class="box"> hello world</div> 
+</body>
+</html>

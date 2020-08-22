@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {background:black;text-align: center;}
+        #c1 {background:#fff;}
+    </style>
+    <script>
+        window.onload=function(){
+            let oC = document.getElementById('c1');
+            // image context  - api all draw pic  method and attribute  belong it;
+            let gd= oC.getContext('2d');
+
+            // path operate 类似PS选取， 只是框定一个范围。
+            // begin point
+            gd.moveTo(470,81);
+            gd.lineTo(778,236);
+            gd.lineTo(532,411);
+            gd.lineTo(312,259);
+            gd.lineTo(470,81);  //?
+
+            gd.stroke();
+            gd.fille();
+
+
+
+        }
+    </script>
+</head>
+<body>
+    <canvas id="c1" width="800" height="600"></canvas>        
+</body>
+</html>

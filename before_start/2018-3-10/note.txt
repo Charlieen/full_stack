@@ -1,0 +1,63 @@
+1: touch simple point: 
+targetTouches, changedTouches;
+slider/banner
+
+2:Mulit point
+ev.touches X
+targetTouches ---
+* different element upon finger point  do not  Mutual interference
+
+不需要做多点触摸的时候- 平均位置：
+
+x= 求和 所有手指 x/ n
+y= 求和 所有手指 y/ n
+
+Gesture Recognition:
+Average position
+------------------------------------------------------------------
+Mulit point touch:
+
+1: avoid effect  - eliminate  disturb
+2: need multi points --Gesture
+i: rotate  后角度 - 前角度
+ii: zoom in out 后距离/前距离
+
+Math.atan(a/b);
+
+------------------------------------------------------------------
+角度：  degree      360
+弧度:Radian   2PI
+
+360 角度 = 2PI 弧度
+
+Math.atan2(100,100)*180/Math.PI
+
+------------------------------------------------------------------
+issue: problem; question matter; trouble ;topic ;point;mishap;
+
+------------------------------------------------------------------
+Mobile Test:
+1:chrome f12  simple , layout simple js
+2:模拟器：Emulator
+3: Browsersync:
+    3.1: bs-config.js ：
+    "files": true,
+    3.2： browser-sync start --server;
+
+外网服务器- 部署：
+1:  linux  yum  mysql httpd iptable...
+2: code ftp ssh
+3: 
+------------------------------------------------------------------
+zoom in out 
+
+------------------------------------------------------------------
+混合移动端APP
+------------------------------------------------------------------
+2：mobile lib： iScroll, hammer
+3：canvas, svg, vml
+------------------------------------------------------------------
+位图：canvas
+矢量图：SVG
+
+

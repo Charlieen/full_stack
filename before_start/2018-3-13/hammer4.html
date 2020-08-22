@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hammer</title>
+    <script src="hammer.js" charset="utf-8"></script>
+    <style media="screen">
+        .box{width:400px;height:400px;background:#CCC;margin:100px auto 0;}
+    </style>
+    <script>
+        window.onload=function(){
+            let oBox = document.querySelector('.box');
+
+            let deg =0, old_deg;
+            let hammer = new Hammer(oBox);
+
+            hammer.get('rotate').set({enable:true});
+
+            hammer.on('rotatestart',ev=>{
+                old_deg=deg;
+            });
+
+            hammer.on('rotatemove',function(ev){
+               
+                deg= old_deg +ev.rotation;
+                oBox.style.transform =`rotate(${deg}deg)`;
+
+                
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html> 

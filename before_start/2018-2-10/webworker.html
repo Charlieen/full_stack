@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let oW= new Worker('1.js');
+
+        oW.postMessage({a:11,b:1090});
+        oW.onmessage=res=>{
+      
+            alert(res.data);
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

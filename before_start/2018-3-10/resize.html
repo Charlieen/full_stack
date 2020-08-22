@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+    <title>Document</title>
+    <style media="screen">
+        .box{width:100px;height:100px;background:#CCC;border:1px solid black;position:absolute;
+        line-height: 100px;text-align:center;font-size:40px;
+        left:50%; top:150px; margin-left:-100px; margin-top:-100px;transform:scale(1,1)}
+    </style>
+    <script>
+        function calDistance(touch1,touch2){
+            return Math.sqrt(Math.pow(touch1.clientX-touch2.clientX, 2),Math.pow(touch1.clientY-touch2.clientY,2));
+           
+        } 
+        window.onload= function(){
+
+             let oBox = document.getElementsByClassName('box')[0];
+             let dis1,dis2;
+             let scale =1, old_scale;
+
+             document.addEventListener('touchstart',function(ev){
+                if(ev.targetTouches.length >=2){
+                    dis1 = calDistance(ev.targetTouches[0],ev.targetTouches[1]);
+                    old_scale=scale;
+                }
+             },false)
+           
+             document.addEventListener('touchmove',function(ev){
+                if(ev.targetTouches.length >=2){
+                  dis2 = calDistance(ev.targetTouches[0],ev.targetTouches[1]);
+
+                  scale= old_scale *  dis2/dis1;
+                  oBox.style.transform=`scale(${scale})`;
+
+                }
+             },false)
+           
+        }
+        
+    </script>
+</head>
+<body>
+    <input type="text"> 
+    <input type="button" value="ChangeColor" onclick="document.getElementsByClassName('box')[0].style.background='yellow'">
+    <div class="box">asdadfaddafaaf</div>
+    
+</body>
+</html>

@@ -1,0 +1,59 @@
+CSS3: new style 
+1:  border-radius
+2:  text-shadow, box-shadow
+3:  linear, radial
+4:  rgba  rgb  a   单独修改 某一个元素的 透明度
+5:  transform
+6:  animation  transition  animation
+
+
+Gradient change:  linear:  not color , is image;
+
+** use transform must give a  initial value
+--------------------------------------------------------------------------------
+transform
+1: rotate
+2: scale
+3: translate
+4: skew 
+
+transform:totate(90deg);
+-webkit-transform:rotate(90deg);
+-moz-transform:
+-o-transform:
+-ms-transfrom:
+--------------------------------------------------------------------------------
+performance:
+
+CSS3 style(especially translate )  do not change box modal:
+
+The space occupied by the element has not changed 
+--------------------------------------------------------------------------------
+DOM operate:
+1: rearrange : make sure all the elements should be at correct positon   The space occupied by the element has  changed => rearrange;
+2: repaint : 
+
+--------------------------------------------------------------------------------
+Animation:
+1：transition  simple easy to use   css all  attribute is  nubmer  can be transition  ex: height; color  
+    time style   ease ease-in ease-out 
+
+2: animation   powerful, troublesome 
+1:define
+2:call it
+--------------------------------------------------------------------------------
+1： transform  advance:
+1: multi transform can be use together  sequence same converse
+
+    transform when execute  from back to front and  base on Vertical and Horizontal two direction  do change;
+
+    看似是反的，其实是正的： 矩阵操作，矩阵乘法  it seem to converse,in fact it is positive order ,
+2：
+2: 3D change;
+--------------------------------------------------------------------------------
+2d                  3D
+rotate           rotateX/rotateY/rotateZ
+translatea       translateX/translateY/translateZ/
+--------------------------------------------------------------------------------
+1: perspective
+2: X/Y/Z

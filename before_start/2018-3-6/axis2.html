@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style media="screen">
+    .box {width:200px;height:200px; background:#CCC;border:1px solid black;margin:100px auto 0;
+    transition:1s all ease;
+    transform:perspective(700px) rotateX(60deg)rotateZ(40deg) ;
+    /*Let the transformed child elements preserve the 3D transformations: */
+    transform-style: preserve-3d;
+    }
+    .child{width:100%;height:100%;background:yellow; 
+    transition: 1s all ease;
+    transform: translateZ(0px);
+    transform-style: preserve-3d;
+    }
+    .child:active{transform:translateZ(-500px);}
+
+    .child2{width:100%;height:50%;background:green;transition:1s all ease;
+        transform: translateZ(0px);
+    }
+    .child2:active{transform:translateZ(-300px)};
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="child"> 
+            <div class="child2">
+                In Child 2
+            </div>
+            
+        </div>
+        In Parent
+    </div>
+</body>
+</html>

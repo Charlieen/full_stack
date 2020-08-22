@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Box</title>
+    <style media="screen">
+     .box{ width:200px;height:200px;  position:relative; margin:150px auto 0; 
+     transition:5s all ease;
+     transform:perspective(700px) rotateX(0deg) rotateY(0deg);
+     transform-style: preserve-3d;
+     }
+    
+    .box div {width:198px;height:198px;border:1px solid black;position: absolute;left:0;top:0; 
+    text-align: center;background:rgba(0,255,0,0.7)}
+
+    .box div.front{transform:translateZ(100px);}
+    .box div.black{transform:translateZ(-100px);}
+    .box div.right{transform:rotateY(90deg)translateZ(100px) ;}
+    .box div.left{transform:rotateY(90deg)translateZ(-100px) ;}
+    .box div.top{transform:rotateX(90deg)translateZ(100px) ;}
+    .box div.bottom{transform:rotateX(90deg)translateZ(-100px) ;}
+
+    .box:active { transform:perspective(700px) rotateX(360deg) rotateY(360deg); }
+
+   
+    </style>
+</head>
+<body>
+    <div class="box"> 
+      <div class="front">front</div>
+      <div class="black">black</div>
+      <div class="left">left</div>
+      <div class="right">right</div>
+      <div class="top">top</div>
+      <div class="bottom">bottom</div>
+    </div>
+</body>
+</html>

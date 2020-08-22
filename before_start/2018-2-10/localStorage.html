@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        localStorage.a='dzg';
+        localStorage.b=300;
+        localStorage.c={name:'dzg',age:89};
+        localStorage.setItem('dzg','charlie ding');
+        console.log(localStorage);
+        for(let name in localStorage){
+            //console.log(localStorage[name]);
+        }
+        for(let i=0;i <localStorage.length;i++){
+            let key = localStorage.key(i);
+            let value = localStorage[key];
+             console.log(key,value);
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

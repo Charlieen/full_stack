@@ -1,0 +1,6 @@
+
+swipe:
+
+pan:  start move end    
+
+

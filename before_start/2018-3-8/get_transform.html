@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style media="screen">
+        .box {transform:rotate(45deg)}
+    </style>
+    <script>
+      window.onload = function(){
+          let oBox = document.querySelector('.box');
+         // alert(oBox.style.transform);  // get inline style method;
+
+            //matrix(0.707107, 0.707107, -0.707107, 0.707107, 0, 0)
+            alert(getComputedStyle(oBox,false).transform);
+      }
+        
+    </script>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html> 

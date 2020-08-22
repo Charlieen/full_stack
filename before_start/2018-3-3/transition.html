@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{ width:200px;height:200px;background:#CCC;margin:100px auto 0;
+        transition: 1s all ease;
+        }
+        /* .box:active {width:400px;height:400px;background:yellow;font-size: 30px;} */
+    </style>
+    <script>
+     window.onload = function(){
+            let oBox = document.getElementsByClassName('box')[0];
+            oBox.onclick = function(){
+                this.style.width='400px';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="box"> hello world</div> 
+</body>
+</html>
