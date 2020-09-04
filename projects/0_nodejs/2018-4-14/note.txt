@@ -1,0 +1,101 @@
+KOA v1  generator 
+KOA v2  generator/async
+KOA V3  async/await
+----------------------------------------------------------------
+express 非破坏式
+koa 
+
+
+express  weak dependent router
+koa      strong depent router
+express:
+server.get('/',(req,res)=>{})
+
+koa3:
+server.use(async (ctx,next)=>{
+
+})
+----------------------------------------------------------------
+koa: 
+1: async 
+2： (req,res,next)
+    (ctx,next)
+
+    ctx.request
+        ctx.request.headers
+        ctx.request.method
+
+    ctx.response
+        .status =xxx
+        .body ={}
+3: strong depence router
+
+const router = require('koa-router');
+
+let r1= router();
+
+server.use(r1.routes());
+
+r1.get(xxx,async);
+r1.post
+r1.use()
+r1.put()
+r1.delete()
+
+----------------------------------------------------------------
+static resouce
+koa-static
+koa-static-cache
+server.use(staticCache('path'));
+----------------------------------------------------------------
+get
+    ctx.request.query
+    ctx.params
+post/file:
+
+server.use(convert(betterBody({
+    uploadDir:'path',
+    keepExtensions:true
+})));
+
+req.request.fields
+req.request.files
+
+6 cookie;
+ctx.cookies.get()
+ctx.cookies.set('ab',20,options);
+options:
+    maxAge: mill second
+    expires
+    path
+    domain
+
+7 session: koa-session
+server.use(session({},server))
+
+server.keys='secret';
+
+----------------------------------------------------------------
+express-static
+express-static-cache
+express-static  
+
+koa-static
+koa-static-cache
+
+----------------------------------------------------------------
+
+mysql-pro
+
+1: good point / advantage : support transaction
+2: avoid inject  Prevent Sql injection
+
+Transaction:
+
+----------------------------------------------------------------
+后台渲染：
+
+
+----------------------------------------------------------------
+
+

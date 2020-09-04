@@ -1,0 +1,104 @@
+1: express 
+    middleware
+
+2: data
+req.query
+bodyParser
+multer
+
+3: cookie, session
+cookie-parser 
+cookie-session
+
+4: router  :     accound the address (url) ,call  the special code ;
+
+ multiplayer in developer
+
+  split 
+
+  big switch
+
+  switch(url){
+      case 'xxx':
+        xxxx;
+  }
+
+
+
+
+5:  server render( Assembly ) : generate html  code 
+    front end render( Assembly ) : generate html code
+    web browser render : 
+    input url -> load from server -> html css js img ...-> drawing all the element in html;
+
+----------------------------------------------------------------------
+Module ： all language(expect JS) all have module system ;
+
+1: frontend:
+    traditional : requireJS -AMD , seaJS -CMD
+    CMD- namespace   { exports module require}
+    AMD - 
+
+    modern : vue angular react  
+    {
+        foundation is CMD 
+    }
+2： backend
+    Node module  system
+
+WebPack -- tools 
+package bundle 
+----------------------------------------------------------------------
+function xxx(){
+    return {
+        a:12,
+        b:5
+    };
+}
+
+...
+
+...
+
+let mod = xxx();
+----------------------------------------------------------------------
+router 
+1: create
+    const  router1 = express.Router();
+2: put content to router
+
+    router1.get('/path1',(req,res)=>{});
+    router1.post('',()=>{})
+    router1.use('',()=>{});
+
+
+3: add  subrouter to parent router;
+
+in subrouter1.js
+const  subrouter1 = express.Router();
+subrouter1.get('/subrouter1',(req,res)=>{});
+
+module.exports = subrouter1 
+
+router1.use('subrouter',require('./subrouter1'));
+
+----------------------------------------------------------------------
+router:   write is not difficult  but planing is difficult
+----------------------------------------------------------------------
+server render : statable  sequrity  good to SEO
+front render :  valume is small  flex and good expression
+----------------------------------------------------------------------
+
+/article/12345       router good to SEO  SPA
+
+/article?id=1232  
+
+/article/:a/:b/:c
+/article?a=3&c=10
+----------------------------------------------------------------------
+pug  破坏式
+
+ejs 
+
+
+

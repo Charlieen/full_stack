@@ -1,0 +1,97 @@
+express,koa
+middleware:
+
+---------
+server.use(function(req,res,next){
+    ...
+    ...
+    next();
+});
+
+server.get(xxx);
+
+-------
+express core is:   express.use()
+
+--------------
+how to implement  express ? express.use() ? 
+
+------------------------------------------
+res.send();
+res.sendFile();    
+res.sendStatus(code);
+
+native code:
+res.writeHeader(404);
+res.write('not found');
+
+express:
+res.sendStatus(404,'can not found');
+
+
+
+
+res.redirect(url);
+
+
+server.use(express.static)
+
+
+
+------------------------------------------
+file upload, cookie session
+
+multer:
+
+1: require('multer');
+
+2: let multerObj= multer({dest:'./upload'});
+
+server.use(multerOjb.any());
+
+3: use req.files
+
+------------------------------------------
+cookie, session:
+1 cookie: save data at browser, when require server, the cookie data will be carry in the request 
+    weak point:
+    1: small  less then 4k;  header 32k 
+    2: very not safe  (user can tamper at will )
+2: session : server side , 
+   strong point:
+   1: big as big as need 
+   2: more safe
+
+3: session is base on cookie.
+
+1: risk:  if sess_ID leaked, session hijack;
+
+1): tell user do not use f12  input some unknown  code;
+2): other user can get my sess_ID  how to do it -- guess  -> make sess_ID  enought complex 
+--------------------------------------------
+npm i cookie-parser cookie-session -D
+
+cookie:
+1: setup    res.cookie(name,value,options)
+2: read     req.cookies();
+3: sequrity : avoid tamper
+
+why do not auto sign all cookie :
+1): not all cookie are sensitive
+
+session:
+1:setup
+2:read
+3:
+
+session sess_ID
+session.sig sess_ID sign
+ 
+------------------------------------------
+router
+--------------------------------------------
+client render
+
+
+
+

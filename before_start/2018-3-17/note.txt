@@ -1,0 +1,59 @@
+Graphics
+------------------------------------------
+draw line : path operator:
+select area: next do sth;
+moveto;
+lineto;
+stroke();
+fill();
+
+all path operate ,must so  beginPath();
+closePath()  is close current path;
+if you do no use closePath() ,the path do not realy be close;
+
+------------------------------------------
+moveTo
+lineTo
+beginPath
+closePath
+stroke/fill
+------------------------------------------
+rectangle;
+rect();
+strokeRect()
+fillRect();
+
+
+
+clearRect  delete a piece of Graphics
+
+canvas - 不会保存图形， 画了就画了，
+1：图形不能修改。- 删了 - 重画
+2: 也没有事件。
+
+速度极快，
+------------------------------------------
+1000/16 = 62.5 
+
+------
+canvas animation - wipe it up and re drawing
+1: wipe all - then  repaint
+2: animation: requestAnimationFrame
+
+-----
+事件  自己做。
+
+line: moveTo lineTo
+rect: rect
+circle: arc
+
+arc(cx,cy,r,startAng,endAng,true);
+
+-------------
+chart:
+pie chart
+
+Text :
+
+strokeText();
+fillText()

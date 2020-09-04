@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style media="screen">
+        body{ background:black;text-align:center;}
+        #c1{background:#FFF;}
+    </style>
+    <script>
+        window.onload=function(){
+
+            function d2a(n){
+                return n*Math.PI/180;
+            }
+
+            function a2d(n){
+                return n/Math.PI *180;
+            }
+
+            let oC= document.getElementById('c1');
+            let gd = oC.getContext('2d');
+           
+            let cx=400,cy=300,r=150;
+
+            gd.arc(cx,cy,r,d2a(0),d2a(90),true);
+            gd.arc(cx,cy,r,d2a(0),d2a(90),false);
+
+
+            gd.stroke();
+
+
+
+
+           }
+            
+          
+
+          
+             
+        
+    </script>
+</head>
+<body>
+    <canvas id="c1" width="800" height="600"></canvas>
+</body>
+</html>
