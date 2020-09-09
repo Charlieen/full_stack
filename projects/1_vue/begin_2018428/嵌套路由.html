@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js" charset="utf-8"></script>
+    <script src="vue-router.js" charset="utf-8"></script>
+
+
+
+</head>
+<body>
+    <div id="div1">
+       <router-link to="/user/info">User Info</router-link>
+       <router-link to="/user/avatar">User Avatar</router-link>
+       <router-link to="/company/update">Company update</router-link>
+       <router-link to="/company/show">Company show</router-link>
+       
+        <router-view></router-view>
+       
+    </div>
+</body> 
+<script> 
+    let router = new VueRouter({
+        routes:[
+            {
+                path:'/user',
+                component:{template:'<div><h4>User: </h4><router-view></router-view></div>'},        
+                children:[
+                    {
+                        path:'info' ,
+                        component:{template:'<span>User Info</span>'},
+                    },
+                    {
+                        path:'avatar' ,
+                        component:{template:'<span>Avatar</span>'},
+                    }
+                ]
+            },
+            {
+                path:'/company',
+                component:{template:'<div><h4>Company: </h4><router-view></router-view></div>'},        
+                children:[
+                    {
+                        path:'update' ,
+                        component:{template:'<div>Edit company info</div>'},
+                    },
+                    {
+                        path:'show' ,
+                        component:{template:'<div>Show company info</div>'},
+                    }
+                ]
+            }
+        ]
+    });
+    new Vue({
+        el:'#div1',
+        router,
+       
+    })
+</script>
+</html> 

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js" charset="utf-8"></script>
+    <script src="vue-router.js" charset="utf-8"></script>
+
+
+
+</head>
+<body>
+    <div id="div1">
+       <router-link to="/article/1">Article 1</router-link>
+       <router-link to="/article/299">Article 2</router-link>
+       <router-link to="/article/229">Article 3</router-link>
+
+        <router-view></router-view>
+       
+    </div>
+</body> 
+<script> 
+    let router = new VueRouter({
+        routes:[
+           
+        {path:'/article/:id',
+            component:{
+                template:'<div>Article ID: {{$route.params.id}}</div>',
+                beforeRouteUpdate(to,from,next){
+                    if(confirm('if leave this page,all edit will not be save ? confirm?')){
+                        next();
+                    }
+                }
+            }
+        },
+            {path:'/',
+            component:{
+                template:'<div>Hello ,welcome to Article shows</div>'
+            }
+            }
+        
+        ]
+    });
+    new Vue({
+        el:'#div1',
+        router,
+        watch:{
+            $route(newVal,oldVal){
+                        console.log('from old:',oldVal);
+                        console.log('to new:',newVal);
+
+                    }
+        }
+    })
+</script>
+</html> 

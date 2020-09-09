@@ -1,0 +1,19 @@
+1: reptile 爬虫
+    抓取数据- 程序伪装成普通用户
+    反爬，反爬取
+
+请求一个网页--- http
+
+------------
+async(){
+await async ()
+await function()
+await promise 
+}
+
+
+new Promise((resolve,reject)=>{
+
+})
+
+2：develope tools 

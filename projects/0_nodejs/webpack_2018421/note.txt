@@ -1,0 +1,84 @@
+1:webpack install
+2: write config file
+    default : webpack.config.js
+    edit : -- config  edit.config.js
+
+------------------------------------------------------------------------
+ES6 - import /export  just standard  but all browser and node do not knonw it .
+
+// 'webpack.config.js' is default  webpack config file name
+    -- webpack --config  basic.webpack.config.js 
+
+webpack itself resolve ES6 import export  functions
+------------------------------------------------------------------------  
+ES6 moduel
+
+export default xxx ;  // as total moduel itself was output ; import xxx from '...';
+export let a=12,b=5;  // output moduel content    import {a,b } from  '...'
+
+webpack config:
+
+module.exports={
+    entry: 'filename',
+    output:{
+        path:'dest/'
+        filename:'bundle.js'
+    }
+};
+
+------------------------------------------------------------------------  
+multiEntry
+
+entry:{
+    index:'',
+    ...
+},
+output:{
+    path:xxx,
+    filename: '...[name]...'
+}
+------------------------------------------------------------------------  
+dev-server: 
+1:install  npm i webpack webpack-cli webpack-dev-server -D 
+------------------------------------------------------------------------ 
+npm i -g webpack   -->  # webpack-cli   -->cli
+npm i webpack      -->   webpack         -->lib
+
+------------------------------------------------------------------------ 
+1:webpack 
+
+2: DevServer
+    develope server
+3: plugins
+  3.1: Loader -- translate 
+       babel-loader  es6 -> es4
+------------------------------------------------------------------------ 
+babel-loader
+1. babel-loader   give webpack to use
+2. babel-core     babel lib
+3. babel-parset-env   env assissant
+------------------------------------------------------------------------ 
+90% loader 
+
+module:{
+    rules:[
+        {
+            test:'正则',
+            use:loader,
+
+        }
+    ]
+}
+------------------------------------------------------------------------ 
+css loader 
+------------------------------------------------------------------------ 
+1:package ->config 
+2: DevServer
+3: all kinds of loader  :  css , image ,
+------------------------------------------------------------------------ 
+typescript -> microsoft -> 
+1: js 
+
+
+ts-loader
+------------------------------------------------------------------------ 

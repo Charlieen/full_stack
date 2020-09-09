@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js" charset="utf-8"></script>
+    <script src="vue-router.js" charset="utf-8"></script>
+
+    <script>
+        window.onload=function(){
+           
+
+            let vm= new Vue({
+                el:"#div1",
+                components:{
+                    'cmp-charlie':{template:'<div>hello component_2</div>'}
+                }         
+            });
+
+            let vm2= new Vue({
+                el:"#div2",
+                     
+            });
+
+        }
+
+
+    </script>
+
+</head>
+<body>
+    <div id="div1">
+      <cmp-charlie></cmp-charlie>
+    </div>
+
+    <div id="div2">
+        <cmp-charlie></cmp-charlie>
+      </div>
+</body> 
+
+</html>

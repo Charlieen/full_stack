@@ -1,0 +1,64 @@
+vue-cli project 
+包含组件：
+
+1.编译：
+ postcss,autoprefixer  编译 CSS
+
+ transform
+ -webkit
+
+ babel  ES6 
+
+ webpack
+
+2.测试：
+ *-loader    热编译
+  eslint      质量
+  jest        单元测试
+  neightwatch   e2e测试
+3.其他
+chalk    命令行高亮
+
+------------------------------------------------------------
+工程目录：
+.babelrc          babel配置
+.editorconfig     编辑器配置
+.eslintignore     eslint忽略列表
+.eslintrc         eslint配置
+.gitignore      
+.postcssrc.js     postcss 配置
+package.json      node 配置
+
+index.html         enter file
+
+
+config/     配置文件
+
+src/        源文件 （打包）
+static/     静态资源 （原样）
+test/ 
+build/      生成用的配置
+------------------------------------------------------------
+可用脚本：
+dev/start  运行项目（开发模式）
+test       测试
+lint       代码质量测试
+build      生成整个项目 ->可运行版本。
+
+------------------------------------------------------------
+1.组件的写法
+2.路由
+3.小心重名（跟html元素）
+------------------------------------------------------------
+1.父子组件
+    父->子  :xxx="数据"  子级 .$attrs.xxx;
+    子-》父 
+vuex
+2.hooks -- event 事件  { 事件只是 通知， 钩子 能阻止 行为}
+------------------------------------------------------------
+axios 
+ajax lib 
+
+
+------------------------------------------------------------
+

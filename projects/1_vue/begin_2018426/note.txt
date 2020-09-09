@@ -1,0 +1,59 @@
+typescript
+------------------------------------------------------------------------
+Angular v1.x   v2.x     v4.0 = angular IO    MVVM
+Vue            begin 
+React    
+
+Vue :
+---------------------------------------------------------------
+1: do not access dom directly
+2: data first class - data driven 
+3: 
+----------------------------------------------------------------
+1: create vm object 
+let vm = new Vue({
+    el: root,
+    data:{},
+    ...
+});
+2: view layer(HTML) 
+i: {{}}
+----------------------------------------------------------------
+data bind:
+1. 单向 {{输出}}     数据 =>视图
+2. 双向 v-model     数据 <=> 试图
+----------------------------------------------------------------
+"Vue里的属性"-- 指令  // 增强普通html 标签的功能。
+----------------------------------------------------------------
+1: 输出 {{}}   html element => innerHTML
+2: 双向绑定：
+    v-model 
+
+3: 属性绑定：
+v-bind:属性='数据'
+:属性='数据'
+
+:style="json" 
+:class="arr"
+
+4:事件
+v-on:click = fn
+@click= fn
+
+5:循环:
+v-for="val,key in array"
+v-for="val,key in json"
+
+6:v-show  display
+7:v-if    delete  {表单内 隐刺 Input 也会提交}
+----------------------------------------------------------------
+two-way bind == observer + oninput 
+
+----------------------------------------------------------------
+1: router
+2. component
+3. fetch axios,
+4. vue-cli webpack
+5. principle
+
+

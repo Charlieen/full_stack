@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js" charset="utf-8"></script>
+    <script>
+        window.onload= function(){
+            new Vue({
+                el:'#div1',
+                data:{
+                    n1:0,
+                    n2:0,
+                },
+                methods:{
+                    fn(){
+                        alert('a');
+                    }
+                },
+                computed:{
+                    result(){
+                        return this.n1* this.n2;
+                    }
+                }
+
+            });
+        };
+    </script>
+</head>
+<body>
+    <div id="div1">
+        <input type="text" name="" value="" v-model="n1">
+        <input type="text" name="" value="" v-model="n2">
+        {{result}}
+    </div>
+   
+</body>
+</html> 

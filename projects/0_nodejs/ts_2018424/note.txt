@@ -1,0 +1,79 @@
+typescript:
+-------------------------------------------------------
+good point:
+
+1: type abstract interface
+2: strict 
+-------------------------------------------------------
+1: type : 类型系统， 计算机层面 ，程序员交互接口，真实世界 到 程序的映射。
+    variable param return value
+
+    指明类型：
+    1:显式声明：  let a:number =12;
+    2: 隐式声明： let b='dzg'   (类型推测)
+
+    number/string/boolean
+    (type1|type2|type3)
+    元组类型：[type1,type2]
+    enumerate : enum Gender{Male,Female}
+    void -- use function return value
+    null/undefined
+    ---
+    never
+    let a:number[]= [1,2,3,4];
+    leat a:Array<number>= [1,2,3,4];
+    
+    
+-------------------------------------------------------
+2: class
+   1.property must declare first
+   2. public all 
+      private  in class area
+      protected  only in class and children class;
+
+    访问修饰符：
+      how to use:
+      private ,proteced , public
+
+      property  all private 
+      method: public 
+    修饰符：
+    static
+    const  
+
+    set get  -> es5    es3/es4 ie 7/8
+
+
+
+-------------------------------------------------------
+3: advance
+    abstract, interface
+
+    一些对象具有共同的特性：
+    1:继承
+    2：接口
+
+    抽象类 只提供一个模板，而不自己实现，
+    1.规范所有子类
+    2. 
+
+      车
+  货车  轿车
+       宝马
+       M3
+  接口，抽象为了规范所有子类, 复用独立逻辑，为实现 分而治之 提供支撑。
+  ----------------------------------------------------------
+  TypeScript---
+  1.type
+  2.修饰符 
+  3. 泛型
+  4. 抽象类 和接口
+     推荐接口
+  5.
+----------------------------------------------------------
+ts-loader
+
+vue-loader
+
+----------------------------------------------------------
+

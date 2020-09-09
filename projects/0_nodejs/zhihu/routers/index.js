@@ -24,7 +24,32 @@ router.get('', async ctx=>{
 
 //localhost:8080/detail/12323
 router.get('detail/:id', async ctx=>{
-    await ctx.render('item')
+
+    let {id}= ctx.params;
+    let question = (await ctx.db.execute(`select * from question_table where id=${id}`))[0];
+    
+    let answers = await ctx.db.execute(`
+    select * from
+     answer_table as Answer left join
+     author_table as Author  on Answer.author_id= Author.id 
+      where question_id=${id}
+    `);
+
+    let topics =  await ctx.db.execute(`
+      select * from topic where id in (${question.topics})
+    `);
+
+    answers.forEach(answer=>{
+      if(answer.id == question.best_answer_id){
+        question.best_answer= answer;
+      }
+    });
+
+    answers=  answers.filter(a=> a.id !== question.best_answer_id );
+
+    console.log(answers[0]);
+
+    await ctx.render('item',{question,answers,topics})
 });
 
 module.exports = router.routes();

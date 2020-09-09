@@ -1,0 +1,17 @@
+{
+  "name": "ajk_server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "koa": "^2.13.0",
+    "koa-mysql": "^1.0.3",
+    "koa-router": "^9.4.0"
+  }
+}

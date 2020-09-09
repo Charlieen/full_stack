@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js" charset="utf-8"></script>
+    <script src="vue-router.js" charset="utf-8"></script>
+
+
+    <style media="screen">
+        .nav-link{color:#333;text-decoration:none;}
+        .router-link-active{font-weight:bold}
+    </style>
+
+</head>
+<body>
+    <div id="div1">
+        <router-link class="nav-link" to="/user">buyer platform</router-link>
+        <router-link class="nav-link" to="/company">seller platform</router-link> 
+        <router-view></router-view>
+<!-- 
+        <a href="#/user">buyer platform</a>
+        <a href="#/compony">seller platform</a> -->
+
+       
+    </div>
+</body> 
+<script src="dest/bundle.js" charset="utf-8"></script>
+</html>

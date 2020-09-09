@@ -62,4 +62,6 @@ mainRouter.use('/', require('./routers/index'));
 
 server.use(mainRouter.routes());
 
+server.use(staticCache(config.wwwDir));
+
 

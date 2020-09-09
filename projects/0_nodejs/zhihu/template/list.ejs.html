@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="/css/main.css">
     <% include ./common/html_header.ejs.html %>
   </head>
   <body>
@@ -118,13 +118,13 @@
                     <div class="ContentItem AnswerItem">
                       <h2 class="ContentItem-title">
                         <div>
-                          <a href="#"><%=question.title%></a>
+                          <a href="/detail/<%=question.id%>"><%=question.title%></a>
                         </div>
                       </h2>
                       <div class="ContentItem-meta"></div>
                       <div class="RichContent is-collapsed">
                         <div class="read-more RichContent-inner RichContent-inner--collapsed">
-                          <span title ="<%=question.best_answer_content.substring(0,100)%>" 
+                          <span content ="<%=question.best_answer_content.substring(0,100)%>" 
                           class="RichText CopyrightRichText-richText"><%=question.best_answer_content.substring(0,100)%></span>
                           <button class="Button ContentItem-more Button--plain" type="button">阅读全文
                             <svg viewbox="0 0 10 6" class="Icon ContentItem-arrowIcon Icon--arrow" style="height:16px;width:10px;" width="10" height="16">

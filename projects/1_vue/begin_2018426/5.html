@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js" charset="utf-8"></script>
+    <script>
+        window.onload= function(){
+            let vm= new Vue({
+                el:'#div1',  // Vue serve root element
+                data:{
+                    styleJson:{     
+                        width:'200px',
+                        height:'300px',
+                        border:'solid 1px black',
+                     },
+                    arr:['aaa','bbb','active']
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+    <div id="div1">
+
+      <input type="text" v-model="styleJson.color"> 
+   
+      <div :style='styleJson' :class="arr" >Span Tag</div>
+ 
+    </div>
+</body>
+</html> 

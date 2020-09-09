@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js" charset="utf-8"></script>
+    <script>
+        window.onload= function(){
+            let vm= new Vue({
+                el:'#div1',  // Vue serve root element
+                data:{
+                  datas:{
+                      '1001':{name:'dzg',age:41},
+                      '1002':{name:'dzg1',age:42},
+                      '1003':{name:'dzg2',age:43},
+                      '1004':{name:'dzg3',age:44},
+                    }
+                      
+
+                  
+                },
+               
+            })
+        }
+    </script>
+</head>
+<body>
+    <div id="div1">
+       <!-- <ul>
+           <li v-for="item,index in Object.keys(datas)">
+            <i>{{item}}:</i>   Name:{{datas[item].name}},Age:{{datas[item].age}}
+            </li>
+       </ul> -->
+
+       <ul>
+        <li v-for="item,id in datas">
+         <i>{{id}}:</i>   Name:{{item.name}},Age:{{item.age}}
+         </li>
+    </ul>
+    </div>
+</body>
+</html> 

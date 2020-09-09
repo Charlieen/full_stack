@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js" charset="utf-8"></script>
+    <script>
+        window.onload= function(){
+            new Vue({
+                el:'#div1',
+                data:{
+                    arr:[
+                        {id:1,name:'abc1',pass:'123456'},
+                        {id:2,name:'abc2',pass:'123456'},
+                        {id:3,name:'abc3',pass:'123456'},
+                        {id:4,name:'abc4',pass:'123456'},
+                        {id:5,name:'abc5',pass:'123456'},
+
+                    ],
+                   
+                }
+            });
+        };
+    </script>
+</head>
+<body>
+    <div id="div1">
+        <ul>
+            <li v-for="json in arr" :key="json.id">{{json.name}}</li>
+        </ul>
+    </div>
+   
+</body>
+</html> 
