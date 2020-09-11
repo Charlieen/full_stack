@@ -59,6 +59,146 @@ vuex
 axios 
 ajax lib 
 
+/static/1.txt  Content-Type: text/plain
+
+http://localhost:8081/list  Content-Type: application/json
+------------------------------------------------------------
+
+1.axios : 
+
+1: main.js
+import axios from 'axios';
+main.js Vue.prototype.axios = axios;
+
+2:in module:
+ (await this.axios('url')).data ; 
+------------------------------------------------------------
+fetch
+
+  let data = await(await fetch('url')).json();
 
 ------------------------------------------------------------
+数据统一:
+1.组件间 -- 同步，通信
+2.数据交互 不要分布在各个地方。
+
+------------------------------------------------------------
+vue 状态统一管理。
+vuex
+1.state -- 状态
+  全局唯一 大 json 
+  module
+
+2.getter
+  获取状态 
+
+3.mutation
+  修改状态操作，
+
+4.action
+ 提交mutation 
+------------------------------------------------------------
+store 
+1. 创建
+ const store = new Vuex.store({
+   strict:ture,
+   state:{},
+   mutations:{},
+   actions:{},
+   getters:{}
+ })
+
+2.注册
+Vue.use(Vuex);
+
+let vm = new Vue({
+  ...
+  state,
+  ...
+})
+
+3.组件里 - 用
+this.$store.dispatch('action名字'，参数)；
+------------------------------------------------------------ 
+组件 -> dispatch -> action commit -> mutation state.xxx -> state
+------------------------------------------------------------ 
+
+父子组件
+axios
+fetch
+vuex  json 
+
+------------------------------------------------------------ 
+统一数据管理 -> 数据交互统一
+------------------------------------------------------------ 
+vuex = state ,getter, mutation,action, modules,
+
+
+------------------------------------------------------------ 
+
+数据：
+1.vuex + 数据交互
+2. 拆出来
+
+------------------------------------------------------------ 
+let a=[];
+let b=a;
+
+for(){
+  a.push(xxx);
+}
+
+b=>[...]
+
+------------------------------------------------------------ 
+手动触发 action               适合异步
+如果getters 是异步的，就很麻烦， 适合同步。
+
+------------------------------------------------------------ 
+结论：
+数据交互- getter;
+其他异步操作 - action 
+
+------------------------------------------------------------ 
+1: 数据搭好，-- vuex +axios /fetch
+2. 组件-展示，逻辑
+
+------------------------------------------------------------ 
+modules:
+1. 数据分隔
+2. mutation,action 可以重名的，同时被触发。
+------------------------------------------------------------ 
+RESTful  --- 
+       1.方法       2.地址
+注册    PUT          /user  
+登录    POST         /user
+获取    GET          /user/:id
+修改    POST         /user/:id
+
+其他风格：
+注册   post         /user?act=reg
+登录   post         /user?act=login
+获取   get          /user?id=xxx
+修改   post         /user?id=xxx
+
+------------------------------------------------------------ 
+
+modules:
+
+引入模块：
+
+1.打包在一起
+
+import xxx from 'xxx'
+{
+  components:{xxxx}
+}
+
+2.按需加载/懒加载/分开加载
+{
+  components:{
+    xxx: import 'xxx'
+  }
+}
+
 

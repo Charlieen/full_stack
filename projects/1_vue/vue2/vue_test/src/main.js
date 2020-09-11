@@ -2,21 +2,20 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import router from './router'
-import axios from 'axios'
+import store from './store/index2'
+// import axios from 'axios'
 
 
 Vue.config.productionTip = false
 
-axios('/static/1.txt').then(res=>{
-  console.log( res.data);
-},err=>{
-  alert('request failure!')
-})
+// Vue.prototype.ajax =axios;
 
+  
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   components: { },
   template: '<router-view/>'
 })

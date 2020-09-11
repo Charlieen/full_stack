@@ -4,6 +4,9 @@
     {{checked}}
     <span>${{data.price}}</span>
     <span>月售:{{data.sales}}</span>
+    <input type="button" value="Add one" @click="fnAdd">
+    <input type="button" value="Minus one" @click="fnMinus">
+
 
 </li>
 </template>
@@ -20,6 +23,14 @@ export default {
         this.data= this.$attrs.data;
         
     } ,
+    methods:{
+        fnAdd(){
+            this.$store.dispatch('addCount',4);
+        },
+        fnMinus(){
+             this.$store.dispatch('minusCount',2);         
+        }
+    },
     watch:{
             checked(){
                 if(this.checked){
