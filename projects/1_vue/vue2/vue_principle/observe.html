@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES7 Observe</title>
+    <script>
+        alert('observe 过时了');
+        let json ={};
+
+        Object.observe(json,()=>{
+            alert('changed!');
+        });
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

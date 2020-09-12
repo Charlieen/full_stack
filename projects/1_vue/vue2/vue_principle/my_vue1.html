@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="my-vue.js" charset="utf-8"></script> -->
+    <script>
+       // console.log(Proxy);
+        Proxy.prototype = Object.prototype;
+
+        class Aaa extends Proxy{
+
+            constructor(){
+                super({},{
+                    get(target,key){
+                        console.log(target,key);
+                    }
+                })
+            }
+        }
+
+        let a = new Aaa();
+
+            console.log(a.num);
+
+        // window.onload= function(){
+        //     let vm = new MyVue({
+        //         el:"#div1",
+        //         data:{a:0}
+        //     });
+
+        //    alert(vm.a);
+
+        // }
+    </script>
+
+</head>
+<body>
+    <div id="div1">{{a}}</div>
+</body>
+</html>

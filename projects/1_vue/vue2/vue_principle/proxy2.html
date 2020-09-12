@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let json={a:12,b:5};
+
+        let p = new Proxy(json,{
+            
+            get(target,key,proxy){
+                if(key in target){
+                    return target[key];
+                }else{
+                    throw new Error('no this key')
+                }
+                
+            },
+            set(target,key,val,proxy){
+               if(val>0 && val<100){
+                   target[key]=val;
+               }else{
+                   throw new Error('invalid value,please input value between o and 100');
+               }
+            },
+           
+        } );
+
+       
+       p.a=424;
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
