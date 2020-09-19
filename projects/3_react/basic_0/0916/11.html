@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/browser.js" charset="utf-8"></script>
+    <script src="js/react.js" charset="utf-8"></script>
+    <script src="js/react-dom.js" charset="utf-8"></script>
+
+
+</head>
+<body>
+    <div id="div1">
+
+    </div>
+    
+</body>
+<script type="text/babel">
+    class ListItem extends React.Component{
+
+        constructor(...args){
+            super(...args);
+            this.color='';
+            this.state={color:''};
+        }
+        
+        fn(){
+            this.props.fn(this.props.index);
+        }
+         
+        render(){
+            console.log(this.props.fn);
+            return <li>
+                <input type="button" value="Delete" onClick={this.fn.bind(this)}/>
+                <h4 style={{color:this.props.color}}>{this.props.data.name}</h4>
+                <span>{this.props.data.age}</span>
+                </li>
+          
+        }
+    }
+
+    class List extends React.Component{
+        constructor(...args){
+            super(...args);
+
+            let users= this.props.users;
+
+            this.state={users}
+        }
+
+     
+
+        delChild(n){
+            let users = this.state.users;
+            users.splice(n,1);
+            this.setState({users});
+        }
+
+        render(){
+         
+            
+            let lis = this.state.users.map((x,index) =><ListItem fn={this.delChild.bind(this)}  key={index} data={x}></ListItem>);
+            return(
+                <div>
+                   
+                <ul>
+                     {lis}
+                </ul>
+                </div>
+            );
+           
+        }
+    }
+
+
+
+    let oDiv = document.getElementById('div1');
+    
+
+    ReactDOM.render(
+       <List users={[{name:'dzg',age:11},
+       {name:'dzg2',age:131},
+       {name:'dz3g',age:131},
+    ]}></List>
+    ,oDiv);
+        
+
+</script>
+</html>

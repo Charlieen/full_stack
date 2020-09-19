@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mod1">
+<head >
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="angular.js" charset="utf-8"></script>
+    <title>Document</title>
+    <style>
+        .box{width:200px;height:200px;background:#CCC}
+    </style>
+    <script>
+        //1 . 声明一个 a component
+            let mod = angular.module('mod1',[]);
+
+        //2. 给组件 添加一个 controller
+            mod.controller('ctrl1',function($scope){
+                $scope.a=12;
+                $scope.fn= function(){
+                    alert(this.a++);
+                }
+            });
+
+
+    </script>
+</head>
+ 
+
+
+<body ng-init="a=true">
+    <div ng-controller="ctrl1">
+        <input type="button" ng-click="fn()" value="an niu"/>
+       {{a}}
+    </div>
+
+ 
+
+</body>
+</html>

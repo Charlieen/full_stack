@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mod1">
+<head >
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="angular.js" charset="utf-8"></script>
+    <script src="jquery.js" charset="utf-8"></script>
+
+    <title>Document</title>
+    <style>
+        .box{width:200px;height:200px;background:#CCC}
+    </style>
+    <script>
+        //1 . 声明一个 a component
+            let mod = angular.module('mod1',[]);
+
+        //2. 给组件 添加一个 controller
+            mod.controller('ctrl1',function($scope,$http,$interval){
+               
+              $scope.arr=[{name:'dzg',mobile:'18712354689'},
+              {name:'dzg2',mobile:'18712354619'},
+              {name:'dzg3',mobile:'18712354629'},
+              {name:'dzg4',mobile:'18712354639'},
+              ]
+                
+            });
+        //3. filter
+
+            mod.filter('phone',function(){
+                return function(input,arg){
+                    return input.substring(0,3)+"****"+input.substring(7);
+                }
+            });
+            mod.filter('phone2',function(){
+                return function(input,arg){
+                    return input.substring(0,4)+"****"+input.substring(7);
+                }
+            });
+     
+            
+
+    </script>
+</head>
+ 
+
+
+<body>
+    <div ng-controller="ctrl1">
+       <ul>
+           <li ng-repeat="item in arr">{{item.name}}, {{item.mobile|phone2}}</li>
+       </ul>
+    </div>
+
+ 
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head >
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <title>Document</title>
+    <style>
+        .box{width:200px;height:200px;background:#CCC}
+    </style>
+    <script>
+        function show( ){
+            console.log(arguments);
+        }
+
+        function show2(options){
+            console.log(options);
+            console.log(options.a+options.b);
+        }
+
+        show2({
+            a:12,
+            b:5
+        });
+
+        show(12,12);
+    </script>
+</head>
+
+<!-- <body ng-init="a=100">
+    <input type="text" ng-model="a"/>
+    <div class="box" title="{{a}}">
+       wojiao: {{a}}
+    </div>
+    <br/>
+    <div class="box" ng-bind="a">
+      wo jiao 
+    </div>
+</body> -->
+
+<body>
+    
+</body>
+</html>

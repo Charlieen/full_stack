@@ -1,0 +1,207 @@
+jsx : =>es6
+
+browser.js  compile .jsx to es6
+react.js  
+react-dom.js 
+
+------------------------------------------------------------------------
+  <script type="text/babel">   => browser.js  compile .jsx to es6
+------------------------------------------------------------------------
+  jsx
+
+ 
+  //html 
+  <div title="aaa">
+    <div>bbb</div>
+  </div>
+
+  //JS
+  let oDiv = document.createElement('div');
+  oDiv.title="aaa";
+  let oDivChild = document.createElement('div');
+  oDiv.appendChild(oDivChild);
+  oDivChild.innerHTML='bbb';
+
+  //JSX
+let oDiv= <div title="aaa">
+    <div>bbb</div>
+  </div>
+------------------------------------------------------------------------
+1.jsx can create component  - just write component's html tag
+
+2.hava and just have one parent tag;
+
+3. jsx component have two different point with html tag:
+
+3.1 Unknown DOM property class. Did you mean className?  => class = className
+3.2 Unknown DOM property for. Did you mean htmlFor?          <label htmlFor="user">User Name:</label>
+------------------------------------------------------------------------
+1. all component must inheriate from React.Component
+2. must have 
+  i: have constructor, super(...arg);
+  ii: First letter must Upper
+  iii: render(){return ();}
+
+
+------------------------------------------------------------------------
+
+new Vue({
+  data:{
+    a:12
+  }
+})
+------------------------------------------------------------------------
+<div a="xxx">  字符串
+<div a={xxx}>  变量
+
+1. for if how to write  use JS own syntax
+
+2.{}
+  向html 输出    类似 --{{}}
+  向属性输出     类似 -- v-bind
+
+3.组件传参
+title="xxx"    字符串，字面量： 111,"1111",true
+title={xxx}    变量
+------------------------------------------------------------------------
+组件传参：
+传：<xxx name={xxx}></xxx>
+
+接： 
+this.props => all properties
+
+<h4 style={{color:this.state.color}}>{this.props.data.name}</h4>
+------------------------------------------------------------------------
+this.props  只读的， 由父组件 留在子组件内的 一个句柄引用。
+Uncaught TypeError: Cannot assign to read only property 'users' of object
+
+this.state  状态  可以改，一变，就触发 组件重新 render();
+
+this.color  普通属性
+
+------------------------------------------------------------------------
+React 可变的一般都是 state
+1.初始化-- constructor
+  this.state={...}
+2. 修改
+  this.setState({
+    xxx:''
+  })
+3.使用
+  this.state.xxx 
+
+------------------------------------------------------------------------
+传参
+name="str"
+name ={xxx}
+
+this.props.xxx 只读
+
+事件:
+onClick={this.fn.bind(this)}
+
+状态：
+this.setState({
+
+});
+------------------------------------------------------------------------
+组件间通信-Flex Redux
+
+1.父级->子级
+属性
+
+2.子集->父级
+方法
+
+------------------------------------------------------------------------
+class React{
+  ....
+}
+class Component{
+
+}
+React.Component = Component;
+
+export default React;
+------------------------------------------------------------------------
+读取数据
+fetch
+------------------------------------------------------------------------
+父->子
+子级：暴露方法  fn1();
+父级： refs.cmp1.fn1();
+
+子->父
+父级：暴露方法
+子级：引用父类.方法()
+
+暴露方法：
+refs
+
+------------------------------------------------------------------------
+
+//1. 外层
+<BrowserRouter>
+   //2. 单一父级
+   <div>
+       ...
+      //3.类似<select>
+      <Switch>
+
+        //4.类似<option>
+        <Route exact path="xxx" component={xxx}/>
+        <Route  path="xxx" component={xxx}/>
+
+      </Swithc>
+      ...
+
+   </div>
+
+</BrowserRouter>
+
+------------------------------------------------------------------------
+<Link to="path">xxxx</Link>
+
+------------------------------------------------------------------------
+
+this.props.match.params
+
+------------------------------------------------------------------------
+ Redux
+
+ import {createStore} from 'redux';
+
+ // build store object
+ const store = createStore(function(state,action){
+   // this function will be execute  when createStore and store.dispatch 
+
+    // according action edit state
+    return state;
+ }); 
+
+ //使用store对象
+
+//设置
+ store.dispatch({type:'xxx',payload:{}});
+
+//读取
+ state = store.getState();
+
+ //订阅
+ store.subscribe(function(){
+
+ });
+
+------------------------------------------------------------------------
+
+createStore(function(state,action){
+
+return state;
+});
+
+store.dispatch({type:'xxx'});
+store.getState() => state obj
+
+store.subscribe(function(){ //修改状态
+
+})

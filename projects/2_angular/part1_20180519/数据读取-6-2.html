@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mod1">
+<head >
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="angular.js" charset="utf-8"></script>
+    <!-- <script src="jquery.js" charset="utf-8"></script> -->
+
+    <title>Document</title>
+    <style>
+        .box{width:200px;height:200px;background:#CCC}
+    </style>
+
+    <script>
+        //1 . 声明一个 a component
+            let mod = angular.module('mod1',[]);
+
+        //2. 给组件 添加一个 controller
+            mod.controller('ctrl1',function($scope,$http){
+                $scope.a=0;
+                $scope.arr=[];
+
+                // $.ajax({
+                //     url:'a.txt',
+                //     dataType:'json',
+                // }).then(arr=>{
+                //     $scope.arr=arr;
+
+                //     // here dirty check Manual
+                //     $scope.$apply();
+                //     // console.log($scope.arr);
+                //     // console.log('b');
+                // },err=>{
+                //    console.log(err);
+                // });
+
+
+                // here  dirty check begin; 当开始检查时，数据还没过来，异步操作。
+
+                // console.log("a");
+
+                $http.get('a.txt').then(res=>{
+                    $scope.arr=res.data;
+                    // console.log(res.data);
+                },err=>{
+                    console.log(err);
+                });
+                
+            });
+            
+
+    </script>
+</head>
+ 
+
+
+<body>
+    <div ng-controller="ctrl1">
+      <ul>
+          <li ng-repeat="json in arr"> 
+              <h4>{{json.name}}</h4>
+              <span>{{json.pass}}</span>
+          </li>
+      </ul>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+       <input type="button" value="Anniu" ng-click="a=a+1" />
+       {{a}}
+    </div>
+
+ 
+
+</body>
+</html>

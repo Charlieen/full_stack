@@ -1,0 +1,56 @@
+Linux centos  ()
+-------------------------------------------------------------------
+1.联网
+
+  改配置
+ vi /etc/sysconfig/network-scripts/ifcfg-xxx;  => onboot = yes
+  重启网络
+   server xxx start|stop|restart
+    /etc/init.d/network restart
+
+service network restart
+
+2.更新系统，软件
+
+yum update -y
+
+yum upgrade
+
+----
+
+
+yum install wget
+yum 
+----------------------------------------------------------------------
+ node 
+ 1.  添加源：
+ https://github.com/nodesource/distributions/blob/master/README.md
+
+ curl -sL https://rpm.nodesource.com/setup_10.x | bash -
+
+ 2. yum install -y nodejs
+ 
+ nginx
+
+1.添加源:
+ https://nginx.org/en/linux_packages.html
+
+root 
+/usr/share/nginx/html
+
+/usr/sbin/nginx -s reload 
+
+
+ mysql
+1.yum install mariadb-server -y
+
+2.安装
+mysql_install_db
+
+3.启动
+service xxx start
+
+
+
+----------------------------------------------------------------------
+

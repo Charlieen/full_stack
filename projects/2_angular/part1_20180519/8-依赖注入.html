@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mod1">
+<head >
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="angular.js" charset="utf-8"></script>
+    <script src="jquery.js" charset="utf-8"></script>
+
+    <title>Document</title>
+    <style>
+        .box{width:200px;height:200px;background:#CCC}
+    </style>
+    <script>
+        //1 . 声明一个 a component
+            let mod = angular.module('mod1',[]);
+
+        //2. 给组件 添加一个 controller
+            mod.controller('ctrl1',function($scope,$http,$interval){
+               
+              $scope.arr=[{name:'dzg',birth:1600097155711},
+              {name:'dzg2',birth:1600097165711},
+              {name:'dzg3',birth:1600097175711},
+              {name:'dzg4',birth:1600097185711},
+              ]
+                
+            });
+        //3. filter
+
+     
+            
+
+    </script>
+</head>
+ 
+
+
+<body>
+    <div ng-controller="ctrl1">
+       <ul>
+           <li ng-repeat="item in arr">{{item.name}}, {{item.birth|date:"yyyy-MM-dd"}}</li>
+       </ul>
+    </div>
+
+ 
+
+</body>
+</html>

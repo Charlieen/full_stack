@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="">
+<head >
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="angular.js" charset="utf-8"></script>
+    <title>Document</title>
+    <style>
+        .box{width:200px;height:200px;background:#CCC}
+    </style>
+</head>
+
+
+
+<body ng-init="a=false">
+    <input type="button" value="Button" ng-click="a=!a"/>
+    <div class="box" ng-show="a"></div>
+    <br/>
+    <div class="box" ng-if="a"></div>
+
+</body>
+</html>

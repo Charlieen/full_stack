@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/browser.js" charset="utf-8"></script>
+    <script src="js/react.js" charset="utf-8"></script>
+    <script src="js/react-dom.js" charset="utf-8"></script>
+
+
+</head>
+<body>
+    <div id="div1">
+
+    </div>
+    
+</body>
+<script type="text/babel">
+    class ListItem extends React.Component{
+
+        constructor(...args){
+            super(...args);
+            this.color='';
+            this.state={color:''};
+        }
+
+         fn(){
+             // this.color='red';  // can not trigger rerender()
+
+             // only state property change can trigger rerender();
+
+            //  this.state.color= 'red' // Vue can  because it use Proxy but react can not ;so we should use setState()
+
+
+            this.setState({
+                color:'red'
+            });
+
+            console.log(this.state.color);
+        }
+   // how to understand    <h4 style={{color:this.state.color}}>{this.props.data.name}</h4>
+   // this.state.color is belong outer {} 
+        render(){
+            return <li>
+                <input type="button" value="To Red" onClick={this.fn.bind(this)}/>
+                <h4 style={{color:this.state.color}}>{this.props.data.name}</h4>
+                <span>{this.props.data.age}</span>
+                </li>
+          
+        }
+    }
+
+    class List extends React.Component{
+        constructor(...args){
+            super(...args);
+        }
+
+        render(){
+            let lis = this.props.users.map((x,index) =><ListItem key={index} data={x}></ListItem>);
+            return <ul>
+               {lis}
+                </ul>;
+        }
+    }
+
+
+
+    let oDiv = document.getElementById('div1');
+    
+
+    ReactDOM.render(
+       <List users={[{name:'dzg',age:11},
+       {name:'dzg2',age:131},
+       {name:'dz3g',age:131},
+    ]}></List>
+    ,oDiv);
+        
+
+</script>
+</html>
